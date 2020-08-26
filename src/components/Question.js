@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Nav(){
+function Question(){
 
     return (
         <>
-        <h5>------ Nav ------</h5>
+        <h3>Question</h3>
         </>
     );
 };
 
-export default Nav;
+export default Question;

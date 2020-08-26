@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Nav from './components/Nav';
+import Quiz from './components/Quiz';
 import Timer from './components/Timer';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App"> 
       <Nav />
       <h1>Quiz App</h1>
+      <Quiz />
       <Timer /> 
     </div>
   );
