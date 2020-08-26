@@ -6,7 +6,6 @@ function Scoreboard(){
         <>
         <h5>Scoreboard</h5>
         </>
-
     );
 };
 

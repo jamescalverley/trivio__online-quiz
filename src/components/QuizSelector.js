@@ -6,7 +6,6 @@ function QuizSelector(){
         <>
         <h5>QuizSelector</h5>
         </>
-
     );
 };
 

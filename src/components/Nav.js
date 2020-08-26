@@ -6,7 +6,6 @@ function Nav(){
         <>
         <h5>Nav</h5>
         </>
-
     );
 };
 

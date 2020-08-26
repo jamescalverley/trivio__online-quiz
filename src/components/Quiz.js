@@ -6,7 +6,6 @@ function Quiz(){
         <>
         <h5>Quiz</h5>
         </>
-
     );
 };
 
