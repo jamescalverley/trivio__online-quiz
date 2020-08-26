@@ -1,11 +1,17 @@
 import React from 'react';
 
-function Question(){
-
+function Question(props){
+    console.log("current", props.activeQ)
     return (
-        <>
-        <h3>Question</h3>
-        </>
+        <div className="active-question">
+            <h3>{props.activeQ.heading}</h3>
+            <p>{props.activeQ.content}</p>
+            <div>
+                {props.activeQ.choices.map( answer => 
+                    <button key={answer}>{answer}</button>
+                )}
+            </div>
+        </div>
     );
 };
 
