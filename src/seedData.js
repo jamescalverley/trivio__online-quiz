@@ -37,6 +37,13 @@ const seedData = {
         content: "Which country has the longest coastline?",
         choices: ["Russia", "Indonesia", "Norway", "Canada"],
         correctAnswer: "Canada"
+        },
+        {
+        qID: 1005,
+        heading: "Question 6!!!",
+        content: "Which country has the longest coastline?",
+        choices: ["Russia", "Indonesia", "Norway", "Canada"],
+        correctAnswer: "Canada"
         }]
 };
 
