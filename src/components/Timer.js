@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Countdown from './Countdown';
 
-function Timer(){
+function Timer(props){
 
     //need to have a value to display timer or not
     const [timerDisplay, setTimerDisplay ] = useState(false);
@@ -16,7 +16,7 @@ function Timer(){
     return (
         <div className="timer-container">
             <h3>Timer</h3>
-            <button onClick={startTimer}>START</button>
+            <button onClick={ () => {startTimer(); props.startQuiz() }}>START</button>  
             { timerDisplay && (
                 <Countdown />
             )}

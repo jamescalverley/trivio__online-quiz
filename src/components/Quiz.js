@@ -4,9 +4,6 @@ import Question from './Question';
 
 console.log(seedData)
 
-
-
-
 function Quiz(){
     
     const questions = seedData.questions;
@@ -23,9 +20,8 @@ function Quiz(){
 
     return (
         <>
-        <h5>Quiz Display</h5>
-        <Question activeQ={questions[index]} nextQuestion={nextQuestion} />
-        
+            <h5>Quiz Display</h5>
+            <Question activeQ={questions[index]} nextQuestion={nextQuestion} />
         </>
     );
 };
