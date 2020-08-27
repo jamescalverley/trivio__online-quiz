@@ -7,6 +7,7 @@ function Countdown(){
     useEffect( () => {
         const timer = 
         seconds > 0 && setInterval(() => {
+            console.log(seconds)
             setSeconds( seconds - 1 )
         }, 1000);
         return () => clearInterval(timer)

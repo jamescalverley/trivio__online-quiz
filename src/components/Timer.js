@@ -4,7 +4,7 @@ import Countdown from './Countdown';
 function Timer(props){
 
     //need to have a value to display timer or not
-    const [timerDisplay, setTimerDisplay ] = useState(false);
+    const [timerDisplay, setTimerDisplay ] = useState(true);
 
     function startTimer(){
         console.log("---- starting timer ----");

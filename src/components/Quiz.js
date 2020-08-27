@@ -4,7 +4,7 @@ import Question from './Question';
 
 console.log(seedData)
 
-function Quiz(){
+function Quiz(props){
     
     const questions = seedData.questions;
     const [index, setIndex] = useState(0);
@@ -14,6 +14,8 @@ function Quiz(){
             setIndex( index + 1 );
         } else {
             console.log("end of questions")
+            props.stopQuiz();
+            props.stopTimer();
             return 
         };
     };
