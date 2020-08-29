@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import seedData from '../seedData.js';
 import Question from './Question';
 
-console.log(seedData)
 
+console.log(seedData)
 function Quiz(props){
     
     const questions = seedData.questions;
@@ -15,16 +15,15 @@ function Quiz(props){
         } else {
             console.log("end of questions")
             props.stopQuiz();
-            props.stopTimer();
-            return 
+            props.stopTimer();  
         };
     };
 
     return (
-        <>
+        <div>
             <h5>Quiz Display</h5>
             <Question activeQ={questions[index]} nextQuestion={nextQuestion} />
-        </>
+        </div>
     );
 };
 
