@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import seedData from '../seedData.js';
 import Question from './Question';
 
 
-console.log(seedData)
 function Quiz(props){
     
-    const questions = seedData.questions;
+    const questions = props.questions;
+    console.log(questions)
     const [index, setIndex] = useState(0);
     
     function nextQuestion(){
@@ -22,7 +21,14 @@ function Quiz(props){
     return (
         <div>
             <h5>Quiz Display</h5>
-            <Question activeQ={questions[index]} nextQuestion={nextQuestion} />
+            <Question 
+                activeQ={questions[index]} 
+                nextQuestion={nextQuestion}
+                userScore={props.userScore}
+                setUserScore={props.setUserScore} 
+                userCorrect={props.userCorrect} 
+            setUserCorrect={props.setUserCorrect} 
+            />
         </div>
     );
 };

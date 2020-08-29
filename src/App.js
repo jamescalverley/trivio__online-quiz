@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import seedData from './seedData.js';
 import Nav from './components/Nav';
 import Quiz from './components/Quiz';
 import Timer from './components/Timer';
@@ -7,12 +8,20 @@ import EndQuiz from './components/EndQuiz';
 // import TimeExpire from './components/TimeExpire';
 
 function App() {
+
+  const quizQuestions = seedData.questions;
   
   const [startBtnDisplay, setStartBtnDisplay] = useState(true);
   const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
   // const [timeExpire, setTimeExpireDisplay] = useState(false);
+  const [userScore, setUserScore] = useState(0);
+  const [userCorrect, setUserCorrect] = useState(0);
+
+  console.log("[App] Userscore:", userScore);
+  console.log("[App] User Correct Count: ", userCorrect)
+  let quizLength = quizQuestions.length;
 
   function startQuiz(){
     console.log("starting quiz ++++ ")
@@ -46,14 +55,23 @@ function App() {
       }
       { quizDisplay && 
         <Quiz 
+          questions={quizQuestions}
           stopQuiz={stopQuiz} 
           stopTimer={stopTimer} 
-          startQuiz={startQuiz} 
+          startQuiz={startQuiz}
+          userScore={userScore}
+          setUserScore={setUserScore}
+          userCorrect={userCorrect} 
+          setUserCorrect={setUserCorrect} 
         /> }
       { timerDisplay &&
         <Timer /> }
        { endDisplay &&
-        <EndQuiz /> }
+        <EndQuiz 
+          userCorrect={userCorrect} 
+          userScore={userScore} 
+          quizLength={quizLength}
+        /> }
       
     </div>
   );
