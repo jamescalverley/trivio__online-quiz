@@ -27,7 +27,7 @@ function Quiz(props){
                 userScore={props.userScore}
                 setUserScore={props.setUserScore} 
                 userCorrect={props.userCorrect} 
-            setUserCorrect={props.setUserCorrect} 
+                setUserCorrect={props.setUserCorrect} 
             />
         </div>
     );
