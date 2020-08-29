@@ -19,7 +19,6 @@ function App() {
     setQuizDisplay(false);
   };
 
-
   function startTimer(){
     setTimerDisplay(true);
   };

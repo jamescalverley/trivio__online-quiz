@@ -1,25 +1,23 @@
-import React, {useState} from 'react';
-import Countdown from './Countdown';
+import React, {useState, useEffect} from 'react';
+
 
 function Timer(props){
+    const [seconds, setSeconds] = useState(60);
 
-    //need to have a value to display timer or not
-    const [timerDisplay, setTimerDisplay ] = useState(true);
-
-    function startTimer(){
-        console.log("---- starting timer ----");
-        setTimerDisplay(true);
-    };
-    
-    // need to have a conditional statement that displays  <Countdown /> if display is changed to true
+    useEffect( () => {
+        const timer = 
+        seconds > 0 && setInterval(() => {
+            setSeconds( seconds - 1 )
+        }, 100);
+        return () => clearInterval(timer)
+    }, [seconds] );
 
     return (
         <div className="timer-container">
             <h3>Timer</h3>
-            <button onClick={ () => {startTimer(); props.startQuiz() }}>START</button>  
-            { timerDisplay && (
-                <Countdown />
-            )}
+            <div className="seconds">
+                {seconds}
+            </div>
         </div>
     );
 };
