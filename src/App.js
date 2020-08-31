@@ -18,9 +18,11 @@ function App() {
   // const [timeExpire, setTimeExpireDisplay] = useState(false);
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
+  const [currentUserName, setCurrentUserName] = useState('');
 
   console.log("[App] Userscore:", userScore);
   console.log("[App] User Correct Count: ", userCorrect)
+  console.log("[App] Current username: ", currentUserName)
   let quizLength = quizQuestions.length;
 
   function startQuiz(){
@@ -71,7 +73,11 @@ function App() {
           userCorrect={userCorrect} 
           userScore={userScore} 
           quizLength={quizLength}
+          username={currentUserName}
+          setUsername={setCurrentUserName}
+          setEndDisplay={setEndDisplay}
         /> }
+      
       
     </div>
   );
