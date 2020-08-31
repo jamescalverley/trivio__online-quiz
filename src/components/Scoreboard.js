@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function Scoreboard(){
+function Scoreboard(props){
+
+
+    // pull in other scores from json file >> set as scores
+    // add new score to all scores (...use spread operator)
+    // add logic to order the scores highest to lowest
+    
+
+    const [scores, setScores] = useState([]);
 
     return (
-        <>
-        <h5>Scoreboard</h5>
-        </>
+        <div className="scoreboard">
+            <h2>Scoreboard</h2>
+            <h4>Username: {props.username}</h4>
+            <h4>Score: {props.userscore}</h4>
+        </div>
     );
 };
 

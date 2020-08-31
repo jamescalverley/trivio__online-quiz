@@ -5,17 +5,23 @@ import Nav from './components/Nav';
 import Quiz from './components/Quiz';
 import Timer from './components/Timer';
 import EndQuiz from './components/EndQuiz';
+import Scoreboard from './components/Scoreboard';
 // import TimeExpire from './components/TimeExpire';
 
 function App() {
-
+  //* quiz data
   const quizQuestions = seedData.questions;
   
+  //* display states
   const [startBtnDisplay, setStartBtnDisplay] = useState(true);
   const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
+  const [scoreboardDisplay, setScoreboardDisplay] = useState(false);
   // const [timeExpire, setTimeExpireDisplay] = useState(false);
+  
+  
+  //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
   const [currentUserName, setCurrentUserName] = useState('');
@@ -68,7 +74,7 @@ function App() {
         /> }
       { timerDisplay &&
         <Timer /> }
-       { endDisplay &&
+      { endDisplay &&
         <EndQuiz 
           userCorrect={userCorrect} 
           userScore={userScore} 
@@ -76,9 +82,13 @@ function App() {
           username={currentUserName}
           setUsername={setCurrentUserName}
           setEndDisplay={setEndDisplay}
-        /> }
-      
-      
+          setScoreboardDisplay={setScoreboardDisplay}
+      /> }
+      { scoreboardDisplay &&
+        <Scoreboard 
+          username={currentUserName}
+          userscore={userScore} 
+      /> }
     </div>
   );
 }

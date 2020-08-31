@@ -7,19 +7,18 @@ function EndQuiz(props){
     function inputTextHandler(ev){
         console.log("[inputTextHandler]");
         let newText = ev.target.value;
-        setInputText(newText)
+        setInputText(newText);
     };
 
     function submitUsername(ev){
         ev.preventDefault();
-        console.log("[submitUsername] -- submitting =>", inputText)
+        console.log("[submitUsername] -- submitting =>", inputText);
         props.setUsername(inputText);
-        setInputText("")
+        setInputText("");
         props.setEndDisplay(false);
-        
+        props.setScoreboardDisplay(true);        
     };
 
-   
     return (
         <div className="end-quiz">
             <div className="end-quiz-display">

@@ -8,7 +8,6 @@ function Question(props){
     const [nextDisplay, setNextDisplay] = useState(false);
     const [userAnswer, setUserAnswer] = useState('');
     
-
     function setAnswer(ev){
         setUserAnswer(ev.target.value);
         setNextDisplay(true);
@@ -18,11 +17,9 @@ function Question(props){
 
     function checkAnswer(ev){
         const correctAnswer = props.activeQ.correctAnswer;
-        
         console.log("Answer: ", userAnswer);
         console.log("Correct Answer: ", correctAnswer);
         setNextDisplay(false);
-
         if ( correctAnswer === userAnswer ) {
             console.log("CORRECT");
             props.setUserScore( props.userScore + 100 )
@@ -30,7 +27,6 @@ function Question(props){
         }; 
     };
 
-    
     return (
         <div className="active-question">
             <h3>{props.activeQ.heading}</h3>
@@ -43,8 +39,6 @@ function Question(props){
             { nextDisplay && 
                 <NextQuestion nextQuestion={props.nextQuestion} checkAnswer={checkAnswer}/>
             }
-            
-           
         </div>
     );
 };
