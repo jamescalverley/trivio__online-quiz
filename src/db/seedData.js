@@ -47,4 +47,23 @@ const seedData = {
         }]
 };
 
-export default seedData;
+const scoreboardData = [
+    {
+        username: "Steve23",
+        score: 650
+    },
+    {
+        username: "james419", 
+        score: 400
+    },
+    {
+        username: "ronda", 
+        score: 800
+    },
+    {
+        username: "barry869", 
+        score: 100
+    }
+];
+
+export  {seedData, scoreboardData};

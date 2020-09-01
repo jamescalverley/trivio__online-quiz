@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import seedData from './seedData.js';
+import {seedData} from './db/seedData.js';
 import Nav from './components/Nav';
 import Quiz from './components/Quiz';
 import Timer from './components/Timer';
