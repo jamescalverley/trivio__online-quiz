@@ -20,7 +20,6 @@ function App() {
   const [scoreboardDisplay, setScoreboardDisplay] = useState(false);
   // const [timeExpire, setTimeExpireDisplay] = useState(false);
   
-  
   //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
