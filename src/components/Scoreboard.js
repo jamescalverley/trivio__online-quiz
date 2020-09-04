@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {v4 as uuidv4} from 'uuid';
 
+
 // pull in other scores from json file >> set as scores
 // add current user and score to displayed data
 // write current user/score to highscores.json
@@ -31,12 +32,18 @@ function Scoreboard(props){
 
     const highscores = scoreboard.filter( user => user.score >= 500 ); 
 
-    console.log("SCOREBOARD", scoreboard )
+    console.log("SCOREBOARD", scoreboard );
+
+    function handleHomeReset(){
+        props.setScoreboardDisplay(false);
+        props.setStartBtnDisplay(true);
+    };
 
     return (
         <div className="scoreboard">
             <h2>Scoreboard</h2>
-            <div>
+            <button onClick={handleHomeReset}>HOME</button>
+            <div className="scoreboard">
                 <h3>HIGH SCORES</h3> 
                 { highscores.map( scores => 
                     <h5 key={uuidv4()}>{scores.username} --- Score: {scores.score}</h5>

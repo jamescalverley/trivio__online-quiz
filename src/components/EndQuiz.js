@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 
 function EndQuiz(props){
 
@@ -19,8 +19,7 @@ function EndQuiz(props){
         props.setScoreboardDisplay(true);  
         postCurrentUser();      
     };
-//! need to return the updated scores through res.send
-//! scoreboard data in App then needs to be updated with the updated scores
+
     async function postCurrentUser(){
         const data = {username: inputText, score: props.userScore};
         console.log("POSTING user data >>", data)
@@ -31,7 +30,6 @@ function EndQuiz(props){
         }).then(res => res.json())
         console.log("RESULT --", result);
         props.setHighScoresData(result)
-
     };
 
     return (
@@ -49,8 +47,7 @@ function EndQuiz(props){
                     <button onClick={submitUsername} type="submit">Submit</button>
                 </form>                 
             </div>  
-        </div>
-        
+        </div> 
     );
 };
 

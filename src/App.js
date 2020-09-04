@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {seedData} from './data/seedData.js';
 import Nav from './components/Nav';
 import Quiz from './components/Quiz';
 import Timer from './components/Timer';
@@ -114,6 +113,8 @@ function App() {
       { scoreboardDisplay &&
         <Scoreboard 
           highScores={highScoresData} 
+          setScoreboardDisplay={setScoreboardDisplay}
+          setStartBtnDisplay={setStartBtnDisplay}
       /> }
     </div>
   );
