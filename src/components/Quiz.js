@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Question from './Question';
 
-
 function Quiz(props){
     
     const questions = props.questions;
@@ -12,7 +11,6 @@ function Quiz(props){
         if (index < questions.length - 1){
             setIndex( index + 1 );
         } else {
-            console.log("end of questions")
             props.stopQuiz();
             props.stopTimer();  
         };
@@ -27,7 +25,7 @@ function Quiz(props){
                 userScore={props.userScore}
                 setUserScore={props.setUserScore} 
                 userCorrect={props.userCorrect} 
-                setUserCorrect={props.setUserCorrect} 
+                setUserCorrect={props.setUserCorrect}
             />
         </div>
     );

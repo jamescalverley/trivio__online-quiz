@@ -13,8 +13,6 @@ function Question(props){
         setNextDisplay(true);
     };
 
-    console.log("Answer Set: ", userAnswer)
-
     function checkAnswer(ev){
         const correctAnswer = props.activeQ.correctAnswer;
         console.log("Answer: ", userAnswer);
@@ -24,7 +22,8 @@ function Question(props){
             console.log("CORRECT");
             props.setUserScore( props.userScore + 100 )
             props.setUserCorrect( props.userCorrect + 1)
-        }; 
+        } else 
+            console.log("INCORRECT"); 
     };
 
     return (
