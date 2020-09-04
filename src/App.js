@@ -19,30 +19,37 @@ function App() {
   // const [timeExpire, setTimeExpireDisplay] = useState(false);
   
   //* current user state
-  const [userScore, setUserScore] = useState(100);
+  const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
-  const [currentUserName, setCurrentUserName] = useState('quizmaster1000');
+  const [currentUserName, setCurrentUserName] = useState("");
 
   //* quiz data
-  const quizQuestions = seedData.questions;
+  const[quizData, setQuizData] = useState([]);
+  let quizLength = quizData.length;
   
   //* highscores data
   const [highScoresData, setHighScoresData] = useState([]);
-  let quizLength = quizQuestions.length;
+  
+  async function getQuizData(){
+    console.log("[getQuizData]");
+    const url = '/api/quiz';
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log("____quiz data", data)    
+    setQuizData(data);
+  };
 
   async function getScoreData(){
     const url = '/api/scoreboard';
     const response = await fetch(url);
     const data = await response.json();
-    console.log("____data", data)    
-    await setHighScoresData(data);
+    console.log("____score data", data)    
+    setHighScoresData(data);
   };
 
-  
   console.log("[App] Userscore:", userScore);
   console.log("[App] User Correct Count: ", userCorrect)
   console.log("[App] Current username: ", currentUserName)
-  
 
   function startQuiz(){
     console.log("starting quiz ++++ ")
@@ -69,9 +76,9 @@ function App() {
 
   useEffect( () => {
     console.log("--getting QUIZ and HIGHSCORES data--");
+    getQuizData();
     getScoreData();
 }, [])
-
 
   return (
     <div className="App"> 
@@ -82,7 +89,7 @@ function App() {
       }
       { quizDisplay && 
         <Quiz 
-          questions={quizQuestions}
+          questions={quizData.questions}
           stopQuiz={stopQuiz} 
           stopTimer={stopTimer} 
           startQuiz={startQuiz}
@@ -106,8 +113,6 @@ function App() {
       /> }
       { scoreboardDisplay &&
         <Scoreboard 
-          username={currentUserName}
-          userscore={userScore}
           highScores={highScoresData} 
       /> }
     </div>
