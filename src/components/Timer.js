@@ -1,21 +1,21 @@
 import React, {useState, useEffect} from 'react';
 
-
-function Timer(props){
+function Timer(){
     const [seconds, setSeconds] = useState(60);
+
+    console.log("Seconds >>>", seconds);
     
+    if (seconds === 0 ) {
+        console.log("Seconds = 0!");
+    };
+
     useEffect( () => {
         const timer = 
         seconds > 0 && setInterval(() => {
-            setSeconds( seconds - 1 )
+            setSeconds( seconds - 1 );
         }, 1000);
-        return () => clearInterval(timer);
+        return () => clearInterval(timer);       
     }, [seconds] );
-
-    // if ( seconds === 0 ) {
-    //     console.log("time is up");
-    //     props.timeExpire();
-    // } 
 
     return (
         <div className="timer-container">
