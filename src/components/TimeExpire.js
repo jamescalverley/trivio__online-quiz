@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
-function TimeExpire(){
+function TimeExpire(props){
 
     function getModalStyle() {
         const top = 50;
@@ -34,12 +34,28 @@ function TimeExpire(){
         setOpen(false);
     };
 
+    function handleRestartQuiz(){
+      console.log("restarting quiz");
+      handleClose();
+      //props.setQuizData();
+      //props.setQuizDisplay(false);
+    };
+
+    function handleHomeBtn(){
+      console.log("take to home page")
+    };
+
     const body = (
         <div style={modalStyle} className={classes.paper}>
-          <h2 id="simple-modal-title">TIME HAS EXPIRED</h2>
-          <p id="simple-modal-description">
+          <h2 id="modal-title">TIME HAS EXPIRED</h2>
+          <p id="modal-description">
             --description goes here
           </p>
+          <div className="modal-footer">
+            <button onClick={handleRestartQuiz}>RESTART Quiz</button>
+            <button onClick={handleHomeBtn}>HOME</button>
+
+          </div>
         </div>
     );
 

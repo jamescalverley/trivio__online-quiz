@@ -19,8 +19,6 @@ function App() {
   const [scoreboardDisplay, setScoreboardDisplay] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   
-  
-  
   //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
@@ -54,7 +52,7 @@ function App() {
     setTimeout( () => {
       console.log("TIME IS UP");
       setOpenModal(true);
-    }, 60*1000)
+    }, 3*1000)
   };
 
   console.log("[App] Userscore:", userScore);
@@ -90,7 +88,10 @@ function App() {
       <Nav />
       <h1>Quiz App</h1>
       { openModal && 
-        <TimeExpire /> } 
+        <TimeExpire 
+          setQuizDisplay={setQuizData}  
+          setQuizData={setQuizData}
+        /> } 
       { startBtnDisplay &&
         <button onClick={ () => {trueTimer(); startQuiz(); startTimer(); setStartBtnDisplay(false) }}>START QUIZ</button> }
       { quizDisplay && 
