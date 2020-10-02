@@ -14,9 +14,7 @@ function EndQuiz(props){
         ev.preventDefault();
         console.log("[submitUsername] -- submitting =>", inputText);
         props.setUsername(inputText);
-        setInputText("");
-        props.setEndDisplay(false);
-        props.setScoreboardDisplay(true);  
+        setInputText(""); 
         postCurrentUser();      
     };
 
@@ -29,7 +27,6 @@ function EndQuiz(props){
             body: JSON.stringify(data)
         }).then(res => res.json())
         console.log("RESULT --", result);
-        props.setHighScoresData(result)
     };
 
     return (
