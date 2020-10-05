@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './components/NavBar';
+import HomePage from './components/HomePage';
 import QuizPage from './components/QuizPage';
 import Scoreboard from './components/Scoreboard';
 
@@ -11,10 +12,12 @@ function App() {
     <Router>
       <div className="App"> 
         <NavBar />
-        <h1>Quiz App (APP)</h1>
-        
         <Route 
-          exact path={["/", "/quiz"]} 
+          exact path={"/home"}
+          component={HomePage}
+        />
+        <Route 
+          exact path={"/quiz"} 
           component={QuizPage} 
         />
         <Route 

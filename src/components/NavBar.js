@@ -8,6 +8,15 @@ function NavBar(){
       <nav>
         <ul>
           <li>
+          <NavLink
+              to="/home"
+              className="link"
+              activeclassname="active"
+            >
+              Home
+            </NavLink> 
+          </li>
+          <li>
             <NavLink
               to="/quiz"
               className="link"
