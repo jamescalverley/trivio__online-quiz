@@ -3,7 +3,7 @@ import Question from './Question';
 
 function Quiz(props){
     
-    const questions = props.questions;
+    const questions = props.questions
     console.log(questions)
     const [index, setIndex] = useState(0);
     
