@@ -1,17 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {Link} from 'react-router-dom';
+const axios = require('axios');
 
 function Scoreboard(props){
 
     const [scoreboard, setScoreboard] = useState([]);
 
     async function getScoreData(){
-        const url = '/api/scoreboard';
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log("____score data", data)    
-        setScoreboard(data.sort( (a,b) => b.score - a.score ));
+        try {
+            const result = await axios.get('/api/userscores');
+            console.log("Scores from DB ---", result);
+            const scores = result.data.data;
+            console.log("DATA", scores);
+            setScoreboard( scores.sort( (a,b) => b.score - a.score )); 
+        } catch (err) {
+            console.log("ERROR", err)
+        };
     };
 
     useEffect( () => {

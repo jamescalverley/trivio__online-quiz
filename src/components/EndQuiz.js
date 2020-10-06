@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+const axios = require('axios');
 
 function EndQuiz(props){
 
@@ -15,18 +16,17 @@ function EndQuiz(props){
         console.log("[submitUsername] -- submitting =>", inputText);
         props.setUsername(inputText);
         setInputText(""); 
-        postCurrentUser();      
+        postCurrentUserAPI();      
     };
 
-    async function postCurrentUser(){
-        const data = {username: inputText, score: props.userScore};
-        console.log("POSTING user data >>", data)
-        const result = await fetch('/api/currentuser', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'}, 
-            body: JSON.stringify(data)
-        }).then(res => res.json())
-        console.log("RESULT --", result);
+    async function postCurrentUserAPI(){
+        try {
+            const data = { username: inputText, score: props.userScore };
+            const result = await axios.post('/api/userscores', data );
+            console.log("NEW USERSCORE POSTED ---", result)
+        } catch (err) {
+            console.log("ERROR", err)
+        };
     };
 
     return (

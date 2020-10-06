@@ -28,14 +28,6 @@ app.get('/api/quiz', (req,res) => {
     console.log("SENDING >>", JSON.parse(quizData));
 });
 
-app.get('/api/scoreboard', (req,res) => {
-    console.log("REQ --", req.url, req.method);
-    const highscores = fs.readFileSync('./db/data/highscores.json', 'utf-8');
-    res.setHeader('Content-Type','application/json');
-    res.send(highscores);
-    console.log("SENDING >> ", JSON.parse(highscores));
-});
-
 app.post('/api/currentuser', (req,res) => {
     console.log("REQ --", req.url, req.method);
     const currentUser = req.body;
