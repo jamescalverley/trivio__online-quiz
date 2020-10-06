@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { getQuizData, getUserScores, postUserScore } = require('../controllers/quizDataControl')
+const { getQuizData } = require('../controllers/quizDataControl');
+
+const { getUserScores, postUserScore } = require('../controllers/userscoresControl')
 
 router
   .route('/quizdata/:quiz')

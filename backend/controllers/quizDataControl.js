@@ -1,20 +1,23 @@
-
+const Quiz = require('../db/models/QuizSchema');
 
 const getQuizData = async (req,res) => {
   console.log(req.url);
-  const quizNeeded = req.params.quiz
-  res.send({message: "getQuizData working", data: quizNeeded});
-}
+  try {
+    const quizNeeded = req.params.quiz;
+    const newQuiz = Quiz;
+    console.log(newQuiz)
+    return res.status(200).json({
+      success: true,
+      message: "Success - getQuizData",
+      data: quizNeeded});
 
-const getUserScores = async (req,res) => {
-  console.log(req.url);
-  res.send({message: "getUserScores working"});
+  } catch (err) {
+      return res.status(500).json({
+        success: false, 
+        message: "SERVER ERROR -- getQuizData", 
+        error: err 
+      });
+  };
 };
 
-const postUserScore = async (req,res) => {
-  console.log(req.url);
-  const data = req.body;
-  res.send({message: "postUserScore working", data: data});
-};
-
-module.exports = { getQuizData, getUserScores, postUserScore }; 
+module.exports = { getQuizData }; 
