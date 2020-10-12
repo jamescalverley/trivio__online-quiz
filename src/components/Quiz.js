@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Question from './Question';
 
+
 function Quiz(props){
     
     const quizData = props.quizData;
@@ -21,6 +22,7 @@ function Quiz(props){
     return (
         <div>
             <h5>Quiz Display</h5>
+             
             <Question 
                 activeQ={questions[index]} 
                 nextQuestion={nextQuestion}

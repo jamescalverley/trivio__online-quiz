@@ -40,3 +40,8 @@ nav ul li {
     color: white;
     background-color: blue;
 }
+.time-expire-container {
+    padding: 4rem;
+    border: 4px solid black;
+    text-align: center;
+}

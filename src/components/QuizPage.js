@@ -8,7 +8,7 @@ const axios = require('axios');
 function QuizPage(){
 //* display states
   const [startBtnDisplay, setStartBtnDisplay] = useState(true);
-  const [openModal, setOpenModal] = useState(false);
+  const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
   const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
@@ -22,7 +22,8 @@ function QuizPage(){
   const[quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
   let questionsLength = quizData.questionSet.length;
 
-  
+  console.log("Userscore: ", userScore)
+
   async function getQuizDataAPI(){
     try {
       const result = await axios.get('/api/quizdata/Geography');
@@ -52,16 +53,35 @@ function QuizPage(){
     setTimerDisplay(false);
   };
 
+  function resetQuiz(){
+    console.log("resetting quiz");
+    setQuizDisplay(false);
+    setTimerDisplay(false);
+    setUserScore(0);
+  };
+
+  function restartQuiz(){
+    console.log("restarting quiz");
+    setTimeExpireDisplay(false);
+    setQuizDisplay(true);
+    resetQuiz();
+    trueTimer();
+    startQuiz();
+    setTimerDisplay(true);
+    startTimer();
+  };
+  
   function trueTimer(){
     setTimeout( () => {
       console.log("TIME IS UP");
-      setOpenModal(true);
-    }, 60*1000)
+      setTimeExpireDisplay(true);
+      setQuizDisplay(false);
+      setTimerDisplay(false);
+    }, 30*1000)
   };
 
   useEffect( () => {
     console.log("--getting QUIZ and HIGHSCORES data--");
-    
     getQuizDataAPI();
     
 }, [])
@@ -69,15 +89,12 @@ function QuizPage(){
   return (
     <div className="quiz-page">
       <h1>Quiz Page</h1>
-      <button onClick={getQuizDataAPI}>TEST</button>  
-
       { startBtnDisplay &&
         <button onClick={ () => {trueTimer(); startQuiz(); startTimer(); setStartBtnDisplay(false) }}>START QUIZ</button> 
       }
-      { openModal && 
+      { timeExpireDisplay && 
         <TimeExpire 
-          // setQuizDisplay={setQuizData}  
-          // setQuizData={setQuizData}
+          restartQuiz={restartQuiz}
         /> 
       } 
       { quizDisplay && 

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 function Timer(){
-    const [seconds, setSeconds] = useState(60);
+    const [seconds, setSeconds] = useState(30);
     if (seconds === 0 ) {
         console.log("Seconds = 0!");
     };
