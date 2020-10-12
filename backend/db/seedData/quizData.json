@@ -1,0 +1,38 @@
+{
+  "quizTitle":"Geography",
+  "topScore":0,
+  "active":false,
+  "questionSet":[
+    {
+      "questionNumber":1,
+      "question":"How many continents are there?",
+      "answers":["4","6","7","8"],
+      "correctAnswer":"7"
+    },
+    {
+      "questionNumber":2,
+      "question":"How many countries are there in the world?",
+      "answers":["200","195","197","202"],
+      "correctAnswer":"197"
+    },
+    {
+      "questionNumber":3,
+      "question":"How many countires belong to the European Union",
+      "answers":["30","31","28","27"],
+      "correctAnswer":"27"
+    },
+    {
+      "questionNumber":4,
+      "question":"What is the largest country in the world by population?",
+      "answers":["China","USA","India","Indonesia"],
+      "correctAnswer":"China"
+    },
+    {
+      "questionNumber":5,
+      "question":"Which country has the longest coastline?",
+      "answers":["Russia","Indonesia","Norway","Canada"],
+      "correctAnswer":"Canada"
+    }
+  ]
+}
+

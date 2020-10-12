@@ -3,10 +3,9 @@ import NextQuestion from './NextQuestion';
 
 
 function Question(props){
-    console.log("Passed to <Question /> :", props.activeQ);
-
     const [nextDisplay, setNextDisplay] = useState(false);
     const [userAnswer, setUserAnswer] = useState('');
+    const question = props.activeQ;
     
     function setAnswer(ev){
         setUserAnswer(ev.target.value);
@@ -14,7 +13,7 @@ function Question(props){
     };
 
     function checkAnswer(ev){
-        const correctAnswer = props.activeQ.correctAnswer;
+        const correctAnswer = question.correctAnswer;
         console.log("Answer: ", userAnswer);
         console.log("Correct Answer: ", correctAnswer);
         setNextDisplay(false);
@@ -28,10 +27,10 @@ function Question(props){
 
     return (
         <div className="active-question">
-            <h3>{props.activeQ.heading}</h3>
-            <p>{props.activeQ.content}</p>
+            <h3>Question {question.questionNumber}</h3>
+            <p>{question.question}</p>
             <div className="answers">
-                {props.activeQ.choices.map( answer => 
+                {question.answers.map( answer => 
                     <button onClick={setAnswer} value={answer} key={answer}>{answer}</button>
                 )}    
             </div>

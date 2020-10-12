@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import TimeExpire from './TimeExpire';
 import Quiz from './Quiz';
 import Timer from './Timer';
-import EndQuiz from './EndQuiz'
+import EndQuiz from './EndQuiz';
+const axios = require('axios');
 
 function QuizPage(){
 //* display states
@@ -15,28 +16,31 @@ function QuizPage(){
 //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
-  const [currentUserName, setCurrentUserName] = useState("");
+  const [currentUserName, setCurrentUserName] = useState([]);
 
 //* quiz data
-  const[quizData, setQuizData] = useState([]);
-  let quizLength = quizData.length;
+  const[quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
+  let questionsLength = quizData.questionSet.length;
 
-  async function getQuizData(){
-    console.log("[getQuizData]");
-    const url = '/api/quiz';
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("____quiz data", data)    
-    setQuizData(data);
+  
+  async function getQuizDataAPI(){
+    try {
+      const result = await axios.get('/api/quizdata/Geography');
+      const quizData = result.data.data;
+      console.log("setting as quizData", quizData);
+      setQuizData( {...quizData} );
+    } catch (err) {
+      console.log("ERROR", err);
+    };
   };
 
   function startQuiz(){
-    console.log("starting quiz ++++ ")
+    console.log("starting quiz ++++ ");
     setQuizDisplay(true);
   };
 
   function stopQuiz(){
-    console.log("stopping quiz ---- ")
+    console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setEndDisplay(true);
   };
@@ -45,7 +49,7 @@ function QuizPage(){
     setTimerDisplay(true);
   };
   function stopTimer(){
-    setTimerDisplay(false)
+    setTimerDisplay(false);
   };
 
   function trueTimer(){
@@ -57,26 +61,28 @@ function QuizPage(){
 
   useEffect( () => {
     console.log("--getting QUIZ and HIGHSCORES data--");
-    getQuizData();
+    
+    getQuizDataAPI();
     
 }, [])
 
   return (
     <div className="quiz-page">
       <h1>Quiz Page</h1>
+      <button onClick={getQuizDataAPI}>TEST</button>  
 
       { startBtnDisplay &&
         <button onClick={ () => {trueTimer(); startQuiz(); startTimer(); setStartBtnDisplay(false) }}>START QUIZ</button> 
       }
       { openModal && 
         <TimeExpire 
-          setQuizDisplay={setQuizData}  
-          setQuizData={setQuizData}
+          // setQuizDisplay={setQuizData}  
+          // setQuizData={setQuizData}
         /> 
       } 
       { quizDisplay && 
         <Quiz 
-          questions={quizData.questions}
+          quizData={quizData}
           stopQuiz={stopQuiz} 
           stopTimer={stopTimer} 
           startQuiz={startQuiz}
@@ -93,7 +99,7 @@ function QuizPage(){
         <EndQuiz 
           userCorrect={userCorrect} 
           userScore={userScore} 
-          quizLength={quizLength}
+          quizLength={questionsLength}
           username={currentUserName}
           setUsername={setCurrentUserName}
           setEndDisplay={setEndDisplay}

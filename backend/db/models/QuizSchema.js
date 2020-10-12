@@ -22,18 +22,23 @@ const QuestionSchema = new Schema({
   }
 });
 
-
 const QuizSchema = new Schema({
   quizTitle: {
     type: String,
     required: true, 
     trim: true
   },
-  active: {
-    type: Boolean, 
-    required: true
+  topScore: {
+    type: Number, 
+    required: true, 
+    default: 0
   },
-  questions: [QuestionSchema]
+  active: {
+    type: Boolean,
+    required: true,
+    default: false, 
+  },
+  questionSet: [QuestionSchema]
 });
 
-module.exports = mongoose.model('Quiz', QuizSchema)
+module.exports = mongoose.model('Quiz', QuizSchema, 'quiz_data')

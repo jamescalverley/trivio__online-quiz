@@ -2,7 +2,6 @@ const UserScore = require('../db/models/UserScoreSchema');
 
 const getUserScores = async (req,res) => {
   console.log(req.url + req.method);
-
   try {
     const scores = await UserScore.find();
     console.log("Getting User Scores", scores);

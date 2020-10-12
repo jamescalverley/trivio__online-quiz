@@ -14,5 +14,4 @@ router
   .get( getUserScores )
   .post( postUserScore )
 
-
 module.exports = router;

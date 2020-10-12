@@ -37,8 +37,6 @@ function TimeExpire(props){
     function handleRestartQuiz(){
       console.log("restarting quiz");
       handleClose();
-      //props.setQuizData();
-      //props.setQuizDisplay(false);
     };
 
     function handleHomeBtn(){

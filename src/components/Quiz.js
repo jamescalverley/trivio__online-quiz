@@ -3,8 +3,10 @@ import Question from './Question';
 
 function Quiz(props){
     
-    const questions = props.questions
-    console.log(questions)
+    const quizData = props.quizData;
+    const questions = quizData.questionSet;
+    console.log("QUIZDATA", quizData);
+    console.log("QUESTIONS", questions)
     const [index, setIndex] = useState(0);
     
     function nextQuestion(){

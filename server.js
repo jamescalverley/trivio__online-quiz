@@ -14,17 +14,8 @@ app.use( express.urlencoded({ extended: true }) );
 // mongoDB connection
 dbConnection();
 
-
 const quizApi = require('./backend/routes/apiRoutes')
 app.use('/api', quizApi )
-
-app.get('/api/quiz', (req,res) => {
-    console.log("REQ --", req.url, req.method);
-    const quizData = fs.readFileSync('./db/data/quizData.json', 'utf-8');
-    res.setHeader('Content-Type', 'application/json');
-    res.send(quizData);
-    console.log("SENDING >>", JSON.parse(quizData));
-});
 
 app.listen(PORT, () => {
     console.log(`App running on http://localhost:${PORT}`.cyan)
