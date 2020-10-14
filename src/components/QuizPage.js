@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import TimeExpire from './TimeExpire';
+import PreQuiz from './PreQuiz';
 import Quiz from './Quiz';
 import Timer from './Timer';
 import EndQuiz from './EndQuiz';
@@ -9,6 +10,7 @@ function QuizPage(){
 //* display states
   const [startBtnDisplay, setStartBtnDisplay] = useState(true);
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
+  const [preQuizDisplay, setPreQuizDisplay] = useState(false);
   const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
@@ -38,12 +40,14 @@ function QuizPage(){
   function startQuiz(){
     console.log("starting quiz ++++ ");
     setQuizDisplay(true);
+    setStartBtnDisplay(false)
   };
 
   function stopQuiz(){
     console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setEndDisplay(true);
+    startTimer();
   };
 
   function startTimer(){
@@ -63,14 +67,21 @@ function QuizPage(){
   function restartQuiz(){
     console.log("restarting quiz");
     setTimeExpireDisplay(false);
-    setQuizDisplay(true);
+    setPreQuizDisplay(true)
+    preQuizTimer();
     resetQuiz();
-    trueTimer();
-    startQuiz();
-    setTimerDisplay(true);
-    startTimer();
   };
   
+  function preQuizTimer(){
+    setTimeout( () => {
+      setPreQuizDisplay(false);
+      setQuizDisplay(true);
+      setTimerDisplay(true);
+      startQuiz();
+      trueTimer();
+    }, 3000);
+  };
+
   function trueTimer(){
     setTimeout( () => {
       console.log("TIME IS UP");
@@ -90,13 +101,16 @@ function QuizPage(){
     <div className="quiz-page">
       <h1>Quiz Page</h1>
       { startBtnDisplay &&
-        <button onClick={ () => {trueTimer(); startQuiz(); startTimer(); setStartBtnDisplay(false) }}>START QUIZ</button> 
+        <button onClick={ () => { preQuizTimer(); setPreQuizDisplay(true)}}>START QUIZ</button> 
       }
       { timeExpireDisplay && 
         <TimeExpire 
           restartQuiz={restartQuiz}
         /> 
       } 
+      { preQuizDisplay && 
+        <PreQuiz />
+      }
       { quizDisplay && 
         <Quiz 
           quizData={quizData}
