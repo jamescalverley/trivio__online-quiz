@@ -24,8 +24,6 @@ function QuizPage(){
   const[quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
   let questionsLength = quizData.questionSet.length;
 
-  console.log("Userscore: ", userScore)
-
   async function getQuizDataAPI(){
     try {
       const result = await axios.get('/api/quizdata/Geography');
@@ -40,14 +38,13 @@ function QuizPage(){
   function startQuiz(){
     console.log("starting quiz ++++ ");
     setQuizDisplay(true);
-    setStartBtnDisplay(false)
+    setStartBtnDisplay(false);
   };
 
   function stopQuiz(){
     console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setEndDisplay(true);
-    startTimer();
   };
 
   function startTimer(){
@@ -76,7 +73,7 @@ function QuizPage(){
     setTimeout( () => {
       setPreQuizDisplay(false);
       setQuizDisplay(true);
-      setTimerDisplay(true);
+      startTimer();
       startQuiz();
       trueTimer();
     }, 3000);
