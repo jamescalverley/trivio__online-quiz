@@ -45,3 +45,14 @@ nav ul li {
     border: 4px solid black;
     text-align: center;
 }
+
+
+.quizheader-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+}
+
+.quizheader {
+    margin-left: 1rem;
+}

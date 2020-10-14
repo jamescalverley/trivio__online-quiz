@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import TimeExpire from './TimeExpire';
 import PreQuiz from './PreQuiz';
+import QuizSelect from './QuizSelect';
 import Quiz from './Quiz';
 import Timer from './Timer';
 import EndQuiz from './EndQuiz';
@@ -21,8 +22,21 @@ function QuizPage(){
   const [currentUserName, setCurrentUserName] = useState([]);
 
 //* quiz data
+  const [quizHeaders, setQuizHeaders] = useState([]);
   const[quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
   let questionsLength = quizData.questionSet.length;
+
+  async function getQuizHeaders(){
+    try {
+      const result = await axios.get('/api/quizheaders');
+      console.log("QUIZ HEADERS", result);
+      const quizHeaders = result.data.data;
+      console.log(">>>", quizHeaders);
+      setQuizHeaders(quizHeaders)
+    } catch (err) {
+      console.log("ERROR", err)
+    };
+  };
 
   async function getQuizDataAPI(){
     try {
@@ -90,6 +104,7 @@ function QuizPage(){
 
   useEffect( () => {
     console.log("--getting QUIZ and HIGHSCORES data--");
+    getQuizHeaders();
     getQuizDataAPI();
     
 }, [])
@@ -97,6 +112,7 @@ function QuizPage(){
   return (
     <div className="quiz-page">
       <h1>Quiz Page</h1>
+      <QuizSelect quizHeaders={quizHeaders} />
       { startBtnDisplay &&
         <button onClick={ () => { preQuizTimer(); setPreQuizDisplay(true)}}>START QUIZ</button> 
       }

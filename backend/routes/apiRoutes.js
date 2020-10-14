@@ -10,7 +10,7 @@ router
   .get( getQuizData )
 
 router
-  .route('/quizheader')
+  .route('/quizheaders')
   .get( getQuizHeader )
   
 router 
