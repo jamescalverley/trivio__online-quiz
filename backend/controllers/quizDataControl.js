@@ -5,7 +5,7 @@ const getQuizData = async (req,res) => {
   try {
     const quizNeeded = req.params.quiz;
     console.log("Quiz needed".red, quizNeeded)
-    const quizData = await Quiz.findOne( {quizTitle: quizNeeded } );
+    const quizData = await Quiz.find();
     console.log("SENDING QUIZ DATA --- DB".red, quizData)
     return res.status(200).json({
       success: true,
@@ -20,4 +20,22 @@ const getQuizData = async (req,res) => {
   };
 };
 
-module.exports = { getQuizData }; 
+const getQuizHeader = async (req,res) => {
+  console.log(req.url);
+  try {
+    const quizResults = await Quiz.find( {}, { quizTitle: 1, timeLimit: 1, questionNum: 1 });
+    console.log("RESULT".red, quizResults)
+    return res.status(200).json({
+      success: true,
+      message: "Success - getQuizData",
+      data: quizResults});
+  } catch (err) {
+    return res.status(500).json({
+      success: false, 
+      message: "SERVER ERROR -- getQuiz", 
+      error: err 
+    });
+  }; 
+};
+
+module.exports = { getQuizData, getQuizHeader }; 

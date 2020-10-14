@@ -38,6 +38,14 @@ const QuizSchema = new Schema({
     required: true,
     default: false, 
   },
+  questionNum: {
+    type: Number, 
+    required: true
+  },
+  timeLimit: {
+    type: Number,
+    required: true
+  },
   questionSet: [QuestionSchema]
 });
 

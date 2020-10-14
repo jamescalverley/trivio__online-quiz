@@ -1,7 +1,10 @@
-{
+[
+  {
   "quizTitle":"Geography",
   "topScore":0,
   "active":false,
+  "questionNum": 5, 
+  "timeLimit": 60,
   "questionSet":[
     {
       "questionNumber":1,
@@ -34,5 +37,78 @@
       "correctAnswer":"Canada"
     }
   ]
-}
+  },
+  {
+    "quizTitle":"Hockey - NHL",
+    "topScore":0,
+    "active":false,
+    "questionNum": 6, 
+    "timeLimit": 120,
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question":"NHL - How many continents are there?",
+        "answers":["4","6","7","8"],
+        "correctAnswer":"7"
+      },
+      {
+        "questionNumber":2,
+        "question":"NHL - How many countries are there in the world?",
+        "answers":["200","195","197","202"],
+        "correctAnswer":"197"
+      },
+      {
+        "questionNumber":3,
+        "question":"NHL - How many countires belong to the European Union",
+        "answers":["30","31","28","27"],
+        "correctAnswer":"27"
+      },
+      {
+        "questionNumber":4,
+        "question":"NHL - What is the largest country in the world by population?",
+        "answers":["China","USA","India","Indonesia"],
+        "correctAnswer":"China"
+      },
+      {
+        "questionNumber":5,
+        "question":"NHL - Which country has the longest coastline?",
+        "answers":["Russia","Indonesia","Norway","Canada"],
+        "correctAnswer":"Canada"
+      }, 
+      {
+        "questionNumber":6,
+        "question":"NHL - Which country has the longest coastline?",
+        "answers":["Russia","Indonesia","Norway","Canada"],
+        "correctAnswer":"Canada"
+      }
+    ]
+  },
+  {
+    "quizTitle":"Plants",
+    "topScore":0,
+    "active":false,
+    "questionNum": 3, 
+    "timeLimit": 45,
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question":"Plants - How many continents are there?",
+        "answers":["4","6","7","8"],
+        "correctAnswer":"7"
+      },
+      {
+        "questionNumber":2,
+        "question":"Plants - How many countries are there in the world?",
+        "answers":["200","195","197","202"],
+        "correctAnswer":"197"
+      },
+      {
+        "questionNumber":3,
+        "question":"Plants - How many countires belong to the European Union",
+        "answers":["30","31","28","27"],
+        "correctAnswer":"27"
+      }
+    ]
+  }
+]
 
