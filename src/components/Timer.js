@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
-function Timer(){
-    const [seconds, setSeconds] = useState(30);
-    if (seconds === 0 ) {
-        console.log("Seconds = 0!");
-    };
+function Timer(props){
 
+    const [seconds, setSeconds] = useState(props.quizSeconds);
+   
     useEffect( () => {
         const timer = 
         seconds > 0 && setInterval(() => {
@@ -16,9 +14,9 @@ function Timer(){
 
     return (
         <div className="timer-container">
-            <h3>Timer</h3>
+            <h3>Time Remaining</h3>
             <div className="seconds">
-                {seconds}
+                {seconds} seconds
             </div>
         </div>
     );

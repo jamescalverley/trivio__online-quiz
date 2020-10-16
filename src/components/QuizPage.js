@@ -141,7 +141,7 @@ function QuizPage(){
         /> 
       }
       { timerDisplay &&
-        <Timer /> 
+        <Timer quizSeconds={quizData.timeLimit}/> 
       }      
       { endDisplay &&
         <EndQuiz 

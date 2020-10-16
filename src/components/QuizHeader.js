@@ -22,9 +22,3 @@ function QuizHeader(props){
 
 export default QuizHeader;
 
-//! look into creating a sub component for the button to hold the value of the quiz header that needs to be passed 
-
-//*
-// pass the getQuizDataAPI function into the QuizHeader component and call it through handleStart
-// adjust function to take in the ID that is being searched and pass through the API route
-// adjust controller function to search and return quiz data for the ID that is given 
