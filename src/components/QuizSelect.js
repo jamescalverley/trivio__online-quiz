@@ -4,7 +4,11 @@ import QuizHeader from './QuizHeader';
 
 function QuizSelect(props){
 
- 
+  function handleQuizStart(){
+    props.preQuizTimer();
+    props.setPreQuizDisplay(true);
+    props.setQuizSelectDisplay(false);
+  };
 
   return (
     <div className="quizselect-container">
@@ -14,9 +18,12 @@ function QuizSelect(props){
       <div className="quizheader-container">
         { props.quizHeaders.map( quiz => 
           <QuizHeader
+            getQuizDataAPI={props.getQuizDataAPI}
+            handleQuizStart={handleQuizStart}
             title={quiz.quizTitle}
             questions={quiz.questionNum}
             timeLimit={quiz.timeLimit}
+            quizID={quiz._id}
             key={quiz._id}
           />
         )}

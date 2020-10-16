@@ -21,7 +21,7 @@ function Quiz(props){
 
     return (
         <div>
-            <h5>Quiz Display</h5>
+            <h2>Quiz - {quizData.quizTitle}</h2>
              
             <Question 
                 activeQ={questions[index]} 

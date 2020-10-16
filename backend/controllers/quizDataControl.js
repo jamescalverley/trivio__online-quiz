@@ -5,7 +5,7 @@ const getQuizData = async (req,res) => {
   try {
     const quizNeeded = req.params.quiz;
     console.log("Quiz needed".red, quizNeeded)
-    const quizData = await Quiz.findOne({ quizTitle: quizNeeded });
+    const quizData = await Quiz.findOne({ _id: quizNeeded });
     console.log("SENDING QUIZ DATA --- DB".red, quizData)
     return res.status(200).json({
       success: true,

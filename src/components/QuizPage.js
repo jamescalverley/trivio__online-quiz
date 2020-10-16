@@ -9,8 +9,8 @@ const axios = require('axios');
 
 function QuizPage(){
 //* display states
-  const [startBtnDisplay, setStartBtnDisplay] = useState(true);
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
+  const [quizSelectDisplay, setQuizSelectDisplay] = useState(true);
   const [preQuizDisplay, setPreQuizDisplay] = useState(false);
   const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
@@ -38,9 +38,10 @@ function QuizPage(){
     };
   };
 
-  async function getQuizDataAPI(){
+  async function getQuizDataAPI(quiz){
     try {
-      const result = await axios.get('/api/quizdata/Geography');
+      console.log("finding ---", quiz)
+      const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
       console.log("setting as quizData", quizData);
       setQuizData( {...quizData} );
@@ -52,7 +53,7 @@ function QuizPage(){
   function startQuiz(){
     console.log("starting quiz ++++ ");
     setQuizDisplay(true);
-    setStartBtnDisplay(false);
+    setQuizSelectDisplay(false);
   };
 
   function stopQuiz(){
@@ -105,16 +106,19 @@ function QuizPage(){
   useEffect( () => {
     console.log("--getting QUIZ and HIGHSCORES data--");
     getQuizHeaders();
-    getQuizDataAPI();
-    
 }, [])
 
   return (
     <div className="quiz-page">
       <h1>Quiz Page</h1>
-      <QuizSelect quizHeaders={quizHeaders} />
-      { startBtnDisplay &&
-        <button onClick={ () => { preQuizTimer(); setPreQuizDisplay(true)}}>START QUIZ</button> 
+      { quizSelectDisplay && 
+        <QuizSelect 
+          quizHeaders={quizHeaders} 
+          getQuizDataAPI={getQuizDataAPI}
+          preQuizTimer={preQuizTimer}
+          setPreQuizDisplay={setPreQuizDisplay}
+          setQuizSelectDisplay={setQuizSelectDisplay}
+        />
       }
       { timeExpireDisplay && 
         <TimeExpire 
