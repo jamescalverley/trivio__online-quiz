@@ -148,6 +148,8 @@ function QuizPage(){
           userCorrect={userCorrect} 
           userScore={userScore} 
           quizTitle={quizData.quizTitle}
+          quizID={quizData._id}
+          topScore={quizData.topScore}
           quizLength={questionsLength}
           username={currentUserName}
           setUsername={setCurrentUserName}

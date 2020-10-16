@@ -33,6 +33,10 @@ const QuizSchema = new Schema({
     required: true, 
     default: 0
   },
+  topUsername: {
+    type: String, 
+    trim: true
+  },
   active: {
     type: Boolean,
     required: true,

@@ -38,4 +38,26 @@ const getQuizHeader = async (req,res) => {
   }; 
 };
 
-module.exports = { getQuizData, getQuizHeader }; 
+const addTopScore = async (req,res) => {
+  console.log(req.url, req.method, req.params);
+  console.log(req.body);
+
+
+  try { 
+    const topAdd = await Quiz.updateOne({ "_id": req.params.quiz }, { $set: { "topScore": req.body.topScore, "topUsername": req.body.topUsername}});
+    console.log("Success".green, topAdd.n)
+    return res.status(200).json({
+      success: true,
+      message: "Sucess - addTopScore"
+    })
+
+  } catch (err) {
+    return res.status(500).json({
+      success: false, 
+      message: "SERVER ERROR -- addTopScore", 
+      error: err 
+    });
+  };
+};
+
+module.exports = { getQuizData, getQuizHeader, addTopScore }; 

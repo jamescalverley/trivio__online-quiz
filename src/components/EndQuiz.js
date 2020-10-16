@@ -4,30 +4,46 @@ const axios = require('axios');
 
 function EndQuiz(props){
 
-    const [inputText, setInputText] = useState("");
+    const [usernameInput, setUsernameInput] = useState("");
     const history = useHistory();
     
     function inputTextHandler(ev){
         let username = ev.target.value;
-        setInputText(username);
+        setUsernameInput(username);
     };
 
     async function submitUsername(ev){
         ev.preventDefault();
-        console.log("[submitUsername] -- submitting =>", inputText);
-        props.setUsername(inputText);
-        setInputText(""); 
+        console.log("[submitUsername] -- submitting =>", usernameInput);
+        props.setUsername(usernameInput);
+        setUsernameInput(""); 
         postCurrentUserAPI();
+        compareScores( props.topScore, props.userScore);
         history.push('/scoreboard')      
     };
 
     async function postCurrentUserAPI(){
         try {
-            const data = { username: inputText, score: props.userScore, quiz: props.quizTitle };
+            const data = { username: usernameInput, score: props.userScore, quiz: props.quizTitle };
             const result = await axios.post('/api/userscores', data );
             console.log("NEW USERSCORE POSTED ---", result)
         } catch (err) {
-            console.log("ERROR", err)
+            console.log("ERROR", err);
+        };
+    };
+
+    function compareScores( currentScore, userScore ){
+        console.log(`Current: ${currentScore} User: ${userScore}`);
+        userScore > currentScore && addTopScore();
+    };
+
+    async function addTopScore(){
+        try {
+            const data = { topScore: props.userScore, topUsername: usernameInput };
+            const result = await axios.put(`/api/quizdata/${props.quizID}`, data);
+            console.log("QUIZ data changed ---", result)
+        } catch (err) {
+            console.log("ERROR", err);
         };
     };
 
@@ -42,7 +58,7 @@ function EndQuiz(props){
             <div className="addusername">
                 <h4>Add name</h4>
                 <form action="submit" onSubmit={submitUsername}>
-                    <input value={inputText} onChange={inputTextHandler} type="text"></input> 
+                    <input value={usernameInput} onChange={inputTextHandler} type="text"></input> 
                     <button type="submit">SUBMIT</button>
                 </form>                 
             </div>  
