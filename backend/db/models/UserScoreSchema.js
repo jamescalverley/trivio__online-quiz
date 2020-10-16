@@ -10,6 +10,11 @@ const UserScoreSchema = new Schema({
   score: {
     type: Number, 
     required: true
+  }, 
+  quiz: {
+    type: String, 
+    required: true,
+    trim: true, 
   }
 });
 

@@ -38,11 +38,15 @@ function Scoreboard(props){
             <div className="scoreboard">
                 <h3>HIGH SCORES</h3> 
                 { highscores.map( scores => 
-                    <h5 key={uuidv4()}>{scores.username} --- Score: {scores.score}</h5>
+                    <div key={uuidv4()} className="score-container">
+                        <h5>{scores.username} --- Score: {scores.score} Quiz: {scores.quiz}</h5> 
+                    </div>
                 )}
                 <h3>All SCORES</h3> 
                 { scoreboard.map( scores => 
-                    <h5 key={uuidv4()}>{scores.username} --- Score: {scores.score}</h5>
+                    <div key={uuidv4()} className="score-container highscore">
+                        <h5>{scores.username} --- Score: {scores.score} Quiz: {scores.quiz}</h5>  
+                    </div>
                 )}
             </div>  
         </div>

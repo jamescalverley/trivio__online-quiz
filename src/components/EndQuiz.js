@@ -1,27 +1,29 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 const axios = require('axios');
 
 function EndQuiz(props){
 
     const [inputText, setInputText] = useState("");
-
+    const history = useHistory();
+    
     function inputTextHandler(ev){
-        console.log("[inputTextHandler]");
-        let newText = ev.target.value;
-        setInputText(newText);
+        let username = ev.target.value;
+        setInputText(username);
     };
 
-    function submitUsername(ev){
+    async function submitUsername(ev){
         ev.preventDefault();
         console.log("[submitUsername] -- submitting =>", inputText);
         props.setUsername(inputText);
         setInputText(""); 
-        postCurrentUserAPI();      
+        postCurrentUserAPI();
+        history.push('/scoreboard')      
     };
 
     async function postCurrentUserAPI(){
         try {
-            const data = { username: inputText, score: props.userScore };
+            const data = { username: inputText, score: props.userScore, quiz: props.quizTitle };
             const result = await axios.post('/api/userscores', data );
             console.log("NEW USERSCORE POSTED ---", result)
         } catch (err) {
@@ -39,9 +41,9 @@ function EndQuiz(props){
             </div>    
             <div className="addusername">
                 <h4>Add name</h4>
-                <form action="submit">
-                    <input onChange={inputTextHandler} type="text" id="usernameAdd"></input> 
-                    <button onClick={submitUsername} type="submit">Submit</button>
+                <form action="submit" onSubmit={submitUsername}>
+                    <input value={inputText} onChange={inputTextHandler} type="text"></input> 
+                    <button type="submit">SUBMIT</button>
                 </form>                 
             </div>  
         </div> 

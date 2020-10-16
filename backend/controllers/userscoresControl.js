@@ -24,13 +24,14 @@ const postUserScore = async (req,res) => {
   try {
     const scoreData = {
       username: req.body.username,
-      score: req.body.score
+      score: req.body.score, 
+      quiz: req.body.quiz
     };
     const userScore = await UserScore.create(scoreData)
     console.log("New score added:", userScore)
     return res.status(200).json({
       success: true, 
-      message: "NEW User Score added", 
+      message: "NEW userscore added", 
       data: userScore
     });
   } catch (err) {

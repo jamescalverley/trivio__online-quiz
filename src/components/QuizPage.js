@@ -147,6 +147,7 @@ function QuizPage(){
         <EndQuiz 
           userCorrect={userCorrect} 
           userScore={userScore} 
+          quizTitle={quizData.quizTitle}
           quizLength={questionsLength}
           username={currentUserName}
           setUsername={setCurrentUserName}
