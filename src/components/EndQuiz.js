@@ -4,7 +4,7 @@ const axios = require('axios');
 
 function EndQuiz(props){
 
-    const [usernameInput, setUsernameInput] = useState("");
+    const [usernameInput, setUsernameInput] = useState("");    
     const history = useHistory();
     
     function inputTextHandler(ev){
@@ -18,13 +18,13 @@ function EndQuiz(props){
         props.setUsername(usernameInput);
         setUsernameInput(""); 
         postCurrentUserAPI();
-        compareScores( props.topScore, props.userScore);
+        compareScores( props.topScore, props.userScore, props.bonusPoints);
         history.push('/scoreboard')      
     };
 
     async function postCurrentUserAPI(){
         try {
-            const data = { username: usernameInput, score: props.userScore, quiz: props.quizTitle };
+            const data = { username: usernameInput, score: (props.userScore + props.bonusPoints), quiz: props.quizTitle };
             const result = await axios.post('/api/userscores', data );
             console.log("NEW USERSCORE POSTED ---", result)
         } catch (err) {
@@ -32,14 +32,16 @@ function EndQuiz(props){
         };
     };
 
-    function compareScores( currentScore, userScore ){
-        console.log(`Current: ${currentScore} User: ${userScore}`);
-        userScore > currentScore && addTopScore();
+    function compareScores( currentScore, userScore, bonusPoints ){
+        console.log(`--- Current: ${currentScore} User: ${userScore} Bonus: ${bonusPoints}`);
+        const totalScore = userScore + bonusPoints;
+        console.log("TotalScore: ", totalScore)
+        totalScore > currentScore && addTopScore();
     };
 
     async function addTopScore(){
         try {
-            const data = { topScore: props.userScore, topUsername: usernameInput };
+            const data = { topScore: (props.userScore + props.bonusPoints), topUsername: usernameInput };
             const result = await axios.put(`/api/quizdata/${props.quizID}`, data);
             console.log("QUIZ data changed ---", result)
         } catch (err) {
@@ -52,8 +54,9 @@ function EndQuiz(props){
             <div className="end-quiz-display">
                 <h2>The quiz has ended.</h2>
                 <h3>You answered {props.userCorrect} of {props.quizLength} questions correctly</h3>
-                <h3>Time bonus: </h3>
-                <h2>Total Score: {props.userScore}</h2>
+                <h3>Points: {props.userScore}</h3>
+                <h3>Time bonus: {props.bonusPoints}</h3>
+                <h2>Total Score: {props.userScore + props.bonusPoints}</h2>
             </div>    
             <div className="addusername">
                 <h4>Add name</h4>

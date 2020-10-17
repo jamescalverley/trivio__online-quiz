@@ -6,14 +6,21 @@ function Quiz(props){
     
     const quizData = props.quizData;
     const questions = quizData.questionSet;
-    console.log("QUIZDATA", quizData);
-    console.log("QUESTIONS", questions)
     const [index, setIndex] = useState(0);
     
+    function timeBonus(endTime){
+        console.log(`START: ${props.startTime} END: ${endTime}`)
+        const timeTaken = Math.floor( (endTime - props.startTime) / 1000 );
+        const points = ( quizData.timeLimit - timeTaken ) * 10;
+        console.log(`USER pts: ${props.userScore} BONUS pts: ${points}`)
+        props.setBonusPoints( prev => prev + points );
+    };
+
     function nextQuestion(){
         if (index < questions.length - 1){
             setIndex( index + 1 );
         } else {
+            timeBonus( Date.now() );
             props.stopQuiz();
             props.stopTimer();  
         };

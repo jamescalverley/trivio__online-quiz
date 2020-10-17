@@ -19,12 +19,15 @@ function QuizPage(){
 //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
+  const [bonusPoints, setBonusPoints] = useState(0);
   const [currentUserName, setCurrentUserName] = useState([]);
 
 //* quiz data
   const [quizHeaders, setQuizHeaders] = useState([]);
-  const[quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
+  const [quizData, setQuizData] = useState({quizTitle: "", topScore: 0, active: false, questionSet:[] });
   let questionsLength = quizData.questionSet.length;
+  const [startTime, setStartTime] = useState(0);
+  const [endTime, setEndTime] = useState(0);
 
   async function getQuizHeaders(){
     try {
@@ -54,6 +57,7 @@ function QuizPage(){
     console.log("starting quiz ++++ ");
     setQuizDisplay(true);
     setQuizSelectDisplay(false);
+    setStartTime(Date.now());
   };
 
   function stopQuiz(){
@@ -91,7 +95,7 @@ function QuizPage(){
       startTimer();
       startQuiz();
       trueTimer();
-    }, 3000);
+    }, 800);
   };
 
   function trueTimer(){
@@ -138,6 +142,10 @@ function QuizPage(){
           setUserScore={setUserScore}
           userCorrect={userCorrect} 
           setUserCorrect={setUserCorrect} 
+          setEndTime={setEndTime}
+          startTime={startTime}
+          endTime={endTime}
+          setBonusPoints={setBonusPoints}
         /> 
       }
       { timerDisplay &&
@@ -147,8 +155,10 @@ function QuizPage(){
         <EndQuiz 
           userCorrect={userCorrect} 
           userScore={userScore} 
+          bonusPoints={bonusPoints}
           quizTitle={quizData.quizTitle}
           quizID={quizData._id}
+          quizSeconds={quizData.timeLimit}
           topScore={quizData.topScore}
           quizLength={questionsLength}
           username={currentUserName}
