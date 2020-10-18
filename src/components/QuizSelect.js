@@ -21,6 +21,7 @@ function QuizSelect(props){
             getQuizDataAPI={props.getQuizDataAPI}
             handleQuizStart={handleQuizStart}
             title={quiz.quizTitle}
+            topScore={quiz.topScore}
             questions={quiz.questionNum}
             timeLimit={quiz.timeLimit}
             quizID={quiz._id}

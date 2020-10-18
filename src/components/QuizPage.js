@@ -95,7 +95,7 @@ function QuizPage(){
       startTimer();
       startQuiz();
       trueTimer();
-    }, 800);
+    }, 3000);
   };
 
   function trueTimer(){

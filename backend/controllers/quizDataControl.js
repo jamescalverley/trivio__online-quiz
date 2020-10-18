@@ -23,7 +23,7 @@ const getQuizData = async (req,res) => {
 const getQuizHeader = async (req,res) => {
   console.log(req.url);
   try {
-    const quizResults = await Quiz.find( {}, { quizTitle: 1, timeLimit: 1, questionNum: 1 });
+    const quizResults = await Quiz.find( {}, { quizTitle: 1, topScore: 1, timeLimit: 1, questionNum: 1 });
     console.log("RESULT".red, quizResults)
     return res.status(200).json({
       success: true,

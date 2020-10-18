@@ -9,9 +9,9 @@ function Quiz(props){
     const [index, setIndex] = useState(0);
     
     function timeBonus(endTime){
-        console.log(`START: ${props.startTime} END: ${endTime}`)
+        console.log(`START: ${props.startTime} END: ${endTime} CORRECT: ${props.userCorrect}`)
         const timeTaken = Math.floor( (endTime - props.startTime) / 1000 );
-        const points = ( quizData.timeLimit - timeTaken ) * 10;
+        const points = ( quizData.timeLimit - timeTaken ) * 5 * props.userCorrect;
         console.log(`USER pts: ${props.userScore} BONUS pts: ${points}`)
         props.setBonusPoints( prev => prev + points );
     };
