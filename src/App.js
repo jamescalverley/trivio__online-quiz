@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import NavBar from './components/NavBar';
-import HomePage from './components/HomePage';
-import QuizPage from './components/QuizPage';
-import Scoreboard from './components/Scoreboard';
+import NavBar from './components/NavBar/NavBar';
+import HomePage from './components/HomePage/HomePage';
+import QuizPage from './components/QuizPage/QuizPage';
+import Scoreboard from './components/Scoreboard/Scoreboard';
 
 function App() {
   

@@ -2,10 +2,10 @@ import React from 'react';
 
 function QuizHeader(props){
 
-  console.log(`Quiz Header: ${props.title}, ${props.questions}, ${props.timeLimit}`);
+  //console.log(`Quiz Header: ${props.title}, ${props.questions}, ${props.timeLimit}`);
 
   function handleStart(value){
-    console.log("Button clicked", value);
+    //console.log("Button clicked", value);
     props.getQuizDataAPI(value);
     props.handleQuizStart();
   };

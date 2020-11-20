@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import Question from './Question';
+import Question from '../Question/Question';
 
 
 function Quiz(props){
     
+    console.log("RENDER ___ Quiz")
+
     const quizData = props.quizData;
     const questions = quizData.questionSet;
     const [index, setIndex] = useState(0);
     
     function timeBonus(endTime){
-        console.log(`START: ${props.startTime} END: ${endTime} CORRECT: ${props.userCorrect}`)
+        //console.log(`START: ${props.startTime} END: ${endTime} CORRECT: ${props.userCorrect}`)
         const timeTaken = Math.floor( (endTime - props.startTime) / 1000 );
         const points = ( quizData.timeLimit - timeTaken ) * 5 * props.userCorrect;
-        console.log(`USER pts: ${props.userScore} BONUS pts: ${points}`)
+        //console.log(`USER pts: ${props.userScore} BONUS pts: ${points}`)
         props.setBonusPoints( prev => prev + points );
     };
 

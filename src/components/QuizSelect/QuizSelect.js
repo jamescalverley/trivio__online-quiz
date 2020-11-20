@@ -1,5 +1,5 @@
 import React from 'react';
-import QuizHeader from './QuizHeader';
+import QuizHeader from '../QuizHeader/QuizHeader';
 
 
 function QuizSelect(props){

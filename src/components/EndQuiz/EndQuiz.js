@@ -14,7 +14,7 @@ function EndQuiz(props){
 
     async function submitUsername(ev){
         ev.preventDefault();
-        console.log("[submitUsername] -- submitting =>", usernameInput);
+        //console.log("[submitUsername] -- submitting =>", usernameInput);
         props.setUsername(usernameInput);
         setUsernameInput(""); 
         postCurrentUserAPI();
@@ -25,8 +25,9 @@ function EndQuiz(props){
     async function postCurrentUserAPI(){
         try {
             const data = { username: usernameInput, score: (props.userScore + props.bonusPoints), quiz: props.quizTitle };
+            // eslint-disable-next-line no-unused-vars
             const result = await axios.post('/api/userscores', data );
-            console.log("NEW USERSCORE POSTED ---", result)
+            //console.log("NEW USERSCORE POSTED ---", result)
         } catch (err) {
             console.log("ERROR", err);
         };
@@ -35,7 +36,7 @@ function EndQuiz(props){
     function compareScores( currentScore, userScore, bonusPoints ){
         console.log(`--- Current: ${currentScore} User: ${userScore} Bonus: ${bonusPoints}`);
         const totalScore = userScore + bonusPoints;
-        console.log("TotalScore: ", totalScore)
+        //console.log("TotalScore: ", totalScore)
         totalScore > currentScore && addTopScore();
     };
 

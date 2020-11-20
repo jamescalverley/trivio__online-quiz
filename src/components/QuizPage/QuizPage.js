@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import TimeExpire from './TimeExpire';
-import PreQuiz from './PreQuiz';
-import QuizSelect from './QuizSelect';
-import Quiz from './Quiz';
-import Timer from './Timer';
-import EndQuiz from './EndQuiz';
+import './QuizPage.css';
+import TimeExpire from '../TimeExpire/TimeExpire';
+import PreQuiz from '../PreQuiz/PreQuiz';
+import QuizSelect from '../QuizSelect/QuizSelect';
+import Quiz from '../Quiz/Quiz';
+import Timer from '../Timer/Timer';
+import EndQuiz from '../EndQuiz/EndQuiz';
 const axios = require('axios');
 
 function QuizPage(){
+
+  console.log("RENDER ___ QuizPage");
+
 //* display states
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
   const [quizSelectDisplay, setQuizSelectDisplay] = useState(true);
@@ -32,9 +36,9 @@ function QuizPage(){
   async function getQuizHeaders(){
     try {
       const result = await axios.get('/api/quizheaders');
-      console.log("QUIZ HEADERS", result);
+      //console.log("QUIZ HEADERS", result);
       const quizHeaders = result.data.data;
-      console.log(">>>", quizHeaders);
+      //console.log(">>>", quizHeaders);
       setQuizHeaders(quizHeaders)
     } catch (err) {
       console.log("ERROR", err)
@@ -43,10 +47,10 @@ function QuizPage(){
 
   async function getQuizDataAPI(quiz){
     try {
-      console.log("finding ---", quiz)
+      //console.log("finding ---", quiz)
       const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
-      console.log("setting as quizData", quizData);
+     // console.log("setting as quizData", quizData);
       setQuizData( {...quizData} );
     } catch (err) {
       console.log("ERROR", err);
@@ -54,14 +58,14 @@ function QuizPage(){
   };
 
   function startQuiz(){
-    console.log("starting quiz ++++ ");
+    //console.log("starting quiz ++++ ");
     setQuizDisplay(true);
     setQuizSelectDisplay(false);
     setStartTime(Date.now());
   };
 
   function stopQuiz(){
-    console.log("stopping quiz ---- ");
+    //console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setEndDisplay(true);
   };
@@ -74,14 +78,14 @@ function QuizPage(){
   };
 
   function resetQuiz(){
-    console.log("resetting quiz");
+    //console.log("resetting quiz");
     setQuizDisplay(false);
     setTimerDisplay(false);
     setUserScore(0);
   };
 
   function restartQuiz(){
-    console.log("restarting quiz");
+    //console.log("restarting quiz");
     setTimeExpireDisplay(false);
     setPreQuizDisplay(true)
     preQuizTimer();
@@ -94,21 +98,22 @@ function QuizPage(){
       setQuizDisplay(true);
       startTimer();
       startQuiz();
-      trueTimer();
+      trueTimer( quizData.timeLimit );
     }, 3000);
   };
 
-  function trueTimer(){
+  function trueTimer( seconds ){
+    console.log(`True timer starting --- ${seconds}`)
     setTimeout( () => {
-      console.log("TIME IS UP");
+      //console.log("TIME IS UP");
       setTimeExpireDisplay(true);
       setQuizDisplay(false);
       setTimerDisplay(false);
-    }, 30*1000)
+    }, seconds *1000)
   };
 
   useEffect( () => {
-    console.log("--getting QUIZ and HIGHSCORES data--");
+    //console.log("--getting QUIZ and HIGHSCORES data--");
     getQuizHeaders();
 }, [])
 

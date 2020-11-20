@@ -10,9 +10,8 @@ function Scoreboard(props){
     async function getScoreData(){
         try {
             const result = await axios.get('/api/userscores');
-            console.log("Scores from DB ---", result);
+            //console.log("Scores from DB ---", result);
             const scores = result.data.data;
-            console.log("DATA", scores);
             setScoreboard( scores.sort( (a,b) => b.score - a.score )); 
         } catch (err) {
             console.log("ERROR", err)

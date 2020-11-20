@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
-import NextQuestion from './NextQuestion';
+import NextQuestion from '../NextQuestion/NextQuestion';
 
 
 function Question(props){
+
+    console.log("RENDER ___ Question")
+
     const [nextDisplay, setNextDisplay] = useState(false);
     const [userAnswer, setUserAnswer] = useState('');
     const question = props.activeQ;
@@ -14,15 +17,12 @@ function Question(props){
 
     function checkAnswer(ev){
         const correctAnswer = question.correctAnswer;
-        console.log("Answer: ", userAnswer);
-        console.log("Correct Answer: ", correctAnswer);
         setNextDisplay(false);
         if ( correctAnswer === userAnswer ) {
-            console.log("CORRECT");
             props.setUserScore( props.userScore + 100 )
             props.setUserCorrect( props.userCorrect + 1)
         } else 
-            console.log("INCORRECT"); 
+            return 
     };
 
     return (
