@@ -9,23 +9,39 @@ import Scoreboard from './components/Scoreboard/Scoreboard';
 function App() {
   
   return (
+
     <Router>
       <div className="App"> 
         <NavBar />
-        <Route 
-          exact path={"/"}
-          component={HomePage}
-        />
-        <Route 
-          exact path={"/quiz"} 
-          component={QuizPage} 
-        />
-        <Route 
-          exact path={'/scoreboard'}
-          component={Scoreboard}
-        />
+        <Route exact path={"/"} >
+          <HomePage />
+        </Route>
+        <Route exact path={"/quiz"} >
+          <QuizPage />
+        </Route>
+        <Route exact path={'/scoreboard'} >
+          <Scoreboard />
+        </Route>
     </div>
     </Router>
+
+    // <Router>
+    //   <div className="App"> 
+    //     <NavBar />
+    //     <Route 
+    //       exact path={"/"}
+    //       component={HomePage}
+    //     />
+    //     <Route 
+    //       exact path={"/quiz"} 
+    //       component={QuizPage} 
+    //     />
+    //     <Route 
+    //       exact path={'/scoreboard'}
+    //       component={Scoreboard}
+    //     />
+    // </div>
+    // </Router>
     
   );
 }
