@@ -119,7 +119,6 @@ function QuizPage(){
 
   return (
     <div className="quiz-page">
-      <h1>Quiz Page</h1>
       { quizSelectDisplay && 
         <QuizSelect 
           quizHeaders={quizHeaders} 

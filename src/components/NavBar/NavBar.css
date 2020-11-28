@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #422EB8;
+  margin: 0;
+  padding: 0;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+nav ul li {
+  padding: 1rem;
+  text-decoration: none;
+}
+.link {
+  color: #FFF;
+  text-decoration: none;
+}
+.link:hover {
+  font-weight: bold;
+}
+
+.active {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+  pointer-events: none;
+}
+.active:hover {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+

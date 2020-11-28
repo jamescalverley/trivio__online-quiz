@@ -1,0 +1,15 @@
+.quizselect-container {
+  background-color: #fff;
+  margin: auto;
+  width: fit-content;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+
+
+.quizheader-container {
+  display: flex;
+  flex-direction: row;
+  
+}

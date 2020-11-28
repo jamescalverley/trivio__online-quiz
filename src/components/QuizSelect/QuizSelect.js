@@ -1,4 +1,5 @@
 import React from 'react';
+import './QuizSelect.css';
 import QuizHeader from '../QuizHeader/QuizHeader';
 
 
