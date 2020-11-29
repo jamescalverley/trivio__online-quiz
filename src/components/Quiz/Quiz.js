@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Quiz.css';
 import Question from '../Question/Question';
 
 
@@ -29,17 +30,25 @@ function Quiz(props){
     };
 
     return (
-        <div>
-            <h2>Quiz - {quizData.quizTitle}</h2>
-            <Question 
-                activeQ={questions[index]} 
-                nextQuestion={nextQuestion}
-                userScore={props.userScore}
-                setUserScore={props.setUserScore} 
-                userCorrect={props.userCorrect} 
-                setUserCorrect={props.setUserCorrect}
-            />
+      <div className="quiz">
+        <h2>Quiz - Geography</h2>    
+        {/* <h2>Quiz - {quizData.quizTitle}</h2> */}
+
+        <div className="quiz-container">
+          
+          <Question 
+              activeQ={questions[index]} 
+              nextQuestion={nextQuestion}
+              userScore={props.userScore}
+              setUserScore={props.setUserScore} 
+              userCorrect={props.userCorrect} 
+              setUserCorrect={props.setUserCorrect}
+          />
         </div>
+
+
+      </div>
+        
     );
 };
 

@@ -13,10 +13,14 @@ function QuizHeader(props){
   
   return (
     <div className="quizheader">
-      <h3>{props.title}</h3>
+      <h2>{props.title}</h2>
       <p>{props.questions} Questions</p>
       <p>{props.timeLimit} seconds</p>
-      <h4>High Score: {props.topScore}</h4>
+      <div className="highscore">
+        <h5>High Score</h5>
+        <h4>{props.topScore}</h4>
+      </div>
+      
       <button onClick={ () => handleStart(props.quizID) }>Select</button>
     </div>
   );

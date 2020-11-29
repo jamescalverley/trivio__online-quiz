@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Question.css';
 import NextQuestion from '../NextQuestion/NextQuestion';
 
 
@@ -6,13 +7,22 @@ function Question(props){
 
     console.log("RENDER ___ Question")
 
-    const [nextDisplay, setNextDisplay] = useState(false);
+    const [nextDisplay, setNextDisplay] = useState(true);
     const [userAnswer, setUserAnswer] = useState('');
-    const question = props.activeQ;
+    //const question = props.activeQ;
     
+    //! for UI dev
+    const question = {
+        questionNumber:1,
+        question:"How many continents are there?",
+        answers:["4","6","7","8"],
+        correctAnswer:"7"
+      };
+
+
     function setAnswer(ev){
-        setUserAnswer(ev.target.value);
-        setNextDisplay(true);
+        //setUserAnswer(ev.target.value);
+        //setNextDisplay(true);
     };
 
     function checkAnswer(ev){

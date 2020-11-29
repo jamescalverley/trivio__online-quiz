@@ -14,9 +14,13 @@ function QuizPage(){
 
 //* display states
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
-  const [quizSelectDisplay, setQuizSelectDisplay] = useState(true);
+  // ! set back to true ---- UI dev
+  const [quizSelectDisplay, setQuizSelectDisplay] = useState(false);
+  //! -----
   const [preQuizDisplay, setPreQuizDisplay] = useState(false);
-  const [quizDisplay, setQuizDisplay] = useState(false);
+  // ! set back to false ---- UI dev
+  const [quizDisplay, setQuizDisplay] = useState(true);
+  //! ----
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
 
@@ -175,3 +179,25 @@ function QuizPage(){
 };
 
 export default QuizPage;
+
+//* colors
+// purple
+//#E94256
+
+//red
+//#E94256
+
+//orange
+// #E35416
+
+//yellow
+//#FFB300
+
+//blue 
+// #0066CC
+
+// light blue
+// #2997FF
+
+// green 
+// #0B9E43

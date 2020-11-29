@@ -1,0 +1,24 @@
+.active-question {
+  background-color: #F5F5F7;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.active-question h3 {
+  margin: 0;
+}
+.answers {
+  margin-top: 2rem;
+  border: solid black 1px;
+  padding: 1rem;
+}
+.answers button {
+  margin: 1rem;
+}
+.answers button:hover {
+  background: aqua;
+  font-weight: bold;
+}
+.answers button:focus {
+  background: red;
+  font-weight: bold;
+}

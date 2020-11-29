@@ -1,15 +1,21 @@
 .quizselect-container {
-  background-color: #fff;
   margin: auto;
   width: fit-content;
-  padding: 2rem;
-  border-radius: 12px;
 }
-
+.quizselect-title h2 {
+  font-size: 48px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 800;
+  color: #FC5744;
+  margin-top: 0;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+}
 
 
 .quizheader-container {
   display: flex;
   flex-direction: row;
-  
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
 }

@@ -14,7 +14,7 @@ function QuizSelect(props){
   return (
     <div className="quizselect-container">
       <div className="quizselect-title">
-        <h2>Select a quiz</h2>
+        <h2>Popular quizzes</h2>
       </div>
       <div className="quizheader-container">
         { props.quizHeaders.map( quiz => 
