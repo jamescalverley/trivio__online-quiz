@@ -1,0 +1,35 @@
+.countdown {
+  margin: 8rem auto;
+  padding: 2rem;
+  min-height: 10rem;
+  text-align: center;
+  max-width: 600px;
+  border-radius: 10px;
+  background-color: #FFB300;
+  color: #F5F5F7;
+}
+.countdown h2 {
+  font-size: 36px;
+}
+.countdown h1 {
+  font-weight: 400;
+}
+.countdown h1 span {
+  color: #FC5744;
+  font-weight: 800;
+  margin-right: 1rem;
+}
+.begin {
+  margin: 8rem auto;
+  min-height: 10rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 600px;
+  border-radius: 10px;
+  color: #F5F5F7;
+  background-color: #0B9E43;
+}
+.begin h2 {
+  font-size: 48px;
+  line-height: 48px;
+}

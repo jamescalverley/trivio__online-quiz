@@ -14,13 +14,9 @@ function QuizPage(){
 
 //* display states
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
-  // ! set back to true ---- UI dev
-  const [quizSelectDisplay, setQuizSelectDisplay] = useState(false);
-  //! -----
+  const [quizSelectDisplay, setQuizSelectDisplay] = useState(true);
   const [preQuizDisplay, setPreQuizDisplay] = useState(false);
-  // ! set back to false ---- UI dev
-  const [quizDisplay, setQuizDisplay] = useState(true);
-  //! ----
+  const [quizDisplay, setQuizDisplay] = useState(false);
   const [timerDisplay, setTimerDisplay] = useState(false);
   const [endDisplay, setEndDisplay] = useState(false);
 
@@ -37,6 +33,8 @@ function QuizPage(){
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
 
+  console.log("----> QUIZ DATA", quizData)
+
   async function getQuizHeaders(){
     try {
       const result = await axios.get('/api/quizheaders');
@@ -51,10 +49,8 @@ function QuizPage(){
 
   async function getQuizDataAPI(quiz){
     try {
-      //console.log("finding ---", quiz)
       const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
-     // console.log("setting as quizData", quizData);
       setQuizData( {...quizData} );
     } catch (err) {
       console.log("ERROR", err);
@@ -96,24 +92,24 @@ function QuizPage(){
     resetQuiz();
   };
   
-  function preQuizTimer(){
+  function preQuizTimer( quizTimeLimit ){
     setTimeout( () => {
       setPreQuizDisplay(false);
       setQuizDisplay(true);
       startTimer();
       startQuiz();
-      trueTimer( quizData.timeLimit );
-    }, 3000);
+      trueTimer( quizTimeLimit );
+    }, 4500);
   };
 
-  function trueTimer( seconds ){
-    console.log(`True timer starting --- ${seconds}`)
+  function trueTimer(seconds ){
+   console.log(`True timer starting --- ${seconds}`)
     setTimeout( () => {
       //console.log("TIME IS UP");
       setTimeExpireDisplay(true);
       setQuizDisplay(false);
       setTimerDisplay(false);
-    }, seconds *1000)
+    }, seconds * 1000)
   };
 
   useEffect( () => {

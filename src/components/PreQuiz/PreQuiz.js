@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import './PreQuiz.css';
 
 function PreQuiz(){
   const [seconds, setSeconds] = useState(3);
-    if (seconds === 0 ) {
-        console.log("Seconds = 0!");
-    };
-
     useEffect( () => {
         const timer = 
         seconds > 0 && setInterval(() => {
@@ -16,8 +13,20 @@ function PreQuiz(){
 
   return (
     <div className="prequiz-container">
-      <h1>Quiz Starting in</h1>
-      <h2>{seconds} seconds</h2>
+      { seconds > 0 &&
+        <div className="countdown">
+          <h2>Quiz Starting in</h2>
+          <h1>
+          <span>{seconds}</span> 
+          { seconds > 1 ? "seconds" : "second" }
+          </h1>
+        </div>
+      }
+      { seconds === 0 &&
+        <div className="begin">
+          <h2>Begin!</h2>
+        </div>
+      }
     </div>
   );
 };

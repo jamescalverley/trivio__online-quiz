@@ -8,17 +8,20 @@ function QuizHeader(props){
   function handleStart(value){
     //console.log("Button clicked", value);
     props.getQuizDataAPI(value);
-    props.handleQuizStart();
+    props.handleQuizStart( props.timeLimit );
   };
   
   return (
     <div className="quizheader">
       <h2>{props.title}</h2>
-      <p>{props.questions} Questions</p>
-      <p>{props.timeLimit} seconds</p>
+      <div className="quiz-info">
+        <p>{props.questions} Questions</p>
+        <p>{props.timeLimit} seconds</p>
+      </div>
+    
+      
       <div className="highscore">
-        <h5>High Score</h5>
-        <h4>{props.topScore}</h4>
+        <h4>High Score <span>{props.topScore}</span></h4>
       </div>
       
       <button onClick={ () => handleStart(props.quizID) }>Select</button>

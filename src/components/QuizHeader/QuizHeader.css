@@ -1,7 +1,7 @@
 .quizheader {
   padding: 2rem;
   border-radius: 10px;
-  margin: 0 2rem 0 0;
+  margin: 0 2rem 2rem 0;
   min-width: 145px;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -9,31 +9,45 @@
   color: #F5F5F7;
   margin-top: 0;
   margin-right: 0.5rem;
-  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+.quiz-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .quizheader p {
-  background-color: #F5F5F7;
+  margin-bottom: 0;
   width: fit-content;
+  border: solid #F5F5F7 1px;
+  color: #F5F5F7;
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 10px;
   font-weight: 400;
+  margin: 1rem 0.5rem 1rem 0;
 }
 .highscore {
   background-color: #F5F5F7;
   text-align: center;
   border-radius: 10px;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.6rem 1rem;
+  width: fit-content;
 }
 .highscore h4 {
   padding: 0;
   margin: 0;
   font-weight: 600;
 }
-.highscore h5 {
-  padding: 0;
-  margin: 0;
-  font-weight: 400;
+.highscore h4 span {
+  color: #E35416;
+  margin-left: 0.8rem;
+  font-size: 22px;
+  font-weight: 800;
+
 }
+
 
 .quizheader button {
   padding: 0.5rem;

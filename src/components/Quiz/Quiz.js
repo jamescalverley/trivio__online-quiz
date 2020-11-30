@@ -31,11 +31,8 @@ function Quiz(props){
 
     return (
       <div className="quiz">
-        <h2>Quiz - Geography</h2>    
-        {/* <h2>Quiz - {quizData.quizTitle}</h2> */}
-
+        <h2>Quiz - {quizData.quizTitle}</h2>
         <div className="quiz-container">
-          
           <Question 
               activeQ={questions[index]} 
               nextQuestion={nextQuestion}
@@ -45,10 +42,7 @@ function Quiz(props){
               setUserCorrect={props.setUserCorrect}
           />
         </div>
-
-
-      </div>
-        
+      </div>       
     );
 };
 

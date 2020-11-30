@@ -1,13 +1,15 @@
 .quizselect-container {
   margin: auto;
-  width: fit-content;
+  width: auto;
+  height: auto;
 }
 .quizselect-title h2 {
   font-size: 48px;
+  width: fit-content;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 800;
   color: #FC5744;
-  margin-top: 0;
+  margin: 0;
   letter-spacing: 1px;
   word-spacing: 5px;
 }
@@ -17,5 +19,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
   padding: 2rem 0 2rem 0;
+  
 }

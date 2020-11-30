@@ -1,4 +1,7 @@
-
+body {
+    margin: 0;
+    padding: 0;
+}
 .answers button {
     width: 6rem;
     height: 2rem;

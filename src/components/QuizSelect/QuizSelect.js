@@ -5,8 +5,8 @@ import QuizHeader from '../QuizHeader/QuizHeader';
 
 function QuizSelect(props){
 
-  function handleQuizStart(){
-    props.preQuizTimer();
+  function handleQuizStart( quizTimeLimit){
+    props.preQuizTimer( quizTimeLimit );
     props.setPreQuizDisplay(true);
     props.setQuizSelectDisplay(false);
   };
