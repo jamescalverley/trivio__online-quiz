@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './Timer.css';
 
 function Timer(props){
 
@@ -14,10 +15,8 @@ function Timer(props){
 
     return (
         <div className="timer-container">
-            <h3>Time Remaining</h3>
-            <div className="seconds">
-                {seconds} seconds
-            </div>
+            <h3>Time Remaining: <span>{seconds}</span>seconds</h3>
+            
         </div>
     );
 };

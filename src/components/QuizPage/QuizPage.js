@@ -136,6 +136,9 @@ function QuizPage(){
       { preQuizDisplay && 
         <PreQuiz />
       }
+      { timerDisplay &&
+        <Timer quizSeconds={quizData.timeLimit}/> 
+      }  
       { quizDisplay && 
         <Quiz 
           quizData={quizData}
@@ -152,9 +155,7 @@ function QuizPage(){
           setBonusPoints={setBonusPoints}
         /> 
       }
-      { timerDisplay &&
-        <Timer quizSeconds={quizData.timeLimit}/> 
-      }      
+          
       { endDisplay &&
         <EndQuiz 
           userCorrect={userCorrect} 

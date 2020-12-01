@@ -1,0 +1,19 @@
+.timer-container {
+  width: fit-content;
+  margin: 1rem auto;
+  background-color: #F5F5F7;
+  padding: 1rem 5rem 1rem 5rem;
+  border-radius: 10px;
+}
+.timer-container h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+.timer-container h3 span {
+  margin-left: 2rem;
+  margin-right: 0.5rem; 
+  font-weight: 800;
+  color: #0B9E43 ;
+
+}
