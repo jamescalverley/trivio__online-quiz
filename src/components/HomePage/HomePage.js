@@ -1,10 +1,14 @@
 import React from 'react';
+import './HomePage.css';
 
 function HomePage(){
   return (
     <div className="home">
-      <h1>Quiz App</h1>
-      <h3>something about quizes</h3>
+      <div className="hero-text">
+        <h1>Quiz App</h1>
+        <h2>test your knowledge</h2>
+        <button>Find a quiz</button>
+      </div>
     </div>
   )
 };

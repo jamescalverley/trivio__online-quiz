@@ -99,7 +99,7 @@ function QuizPage(){
       startTimer();
       startQuiz();
       trueTimer( quizTimeLimit );
-    }, 4500);
+    }, 1000);
   };
 
   function trueTimer(seconds ){

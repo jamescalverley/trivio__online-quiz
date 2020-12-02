@@ -1,0 +1,13 @@
+.time-expire-container {
+  background-color: #E94256;
+  padding: 3rem;
+  color: #F5F5F7;
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+  border-radius: 10px;
+}
+.time-expire-container h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

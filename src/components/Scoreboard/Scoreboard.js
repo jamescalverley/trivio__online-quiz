@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './Scoreboard.css';
 import {v4 as uuidv4} from 'uuid';
 import {Link} from 'react-router-dom';
 const axios = require('axios');
@@ -25,30 +26,27 @@ function Scoreboard(props){
     const highscores = scoreboard.filter( user => user.score >= 500 ); 
 
     return (
-        <div className="scoreboard">
-            <h2>Scoreboard</h2>
-            <button>
-                <Link
-                    to="/">
-                    home
-                </Link>
-            </button>
-            
-            <div className="scoreboard">
-                <h3>HIGH SCORES</h3> 
-                { highscores.map( scores => 
-                    <div key={uuidv4()} className="score-container">
-                        <h5>{scores.username} --- Score: {scores.score} Quiz: {scores.quiz}</h5> 
-                    </div>
-                )}
-                <h3>All SCORES</h3> 
-                { scoreboard.map( scores => 
-                    <div key={uuidv4()} className="score-container highscore">
-                        <h5>{scores.username} --- Score: {scores.score} Quiz: {scores.quiz}</h5>  
-                    </div>
-                )}
-            </div>  
-        </div>
+      <div className="scoreboard-page">
+        <h2>Scoreboard</h2>
+        <div className="scores-container">
+          <div className="highscores-container">
+              <h3>High Scores</h3> 
+              { highscores.map( scores => 
+                  <div key={uuidv4()} className="score">
+                      <h5>{scores.username} --- Score: {scores.score} Quiz: {scores.quiz}</h5> 
+                  </div>
+              )}
+          </div>
+          <div className="allscores-container">
+              <h3>All Scores</h3> 
+              { scoreboard.map( scores => 
+                  <div key={uuidv4()} className="score">
+                      <h5>{scores.username} Score: {scores.score} Quiz: {scores.quiz}</h5>  
+                  </div>
+              )}
+          </div> 
+        </div> 
+      </div>
     );
 };
 

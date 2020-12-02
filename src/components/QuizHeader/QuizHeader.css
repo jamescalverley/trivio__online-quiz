@@ -29,7 +29,7 @@
   margin: 1rem 0.5rem 1rem 0;
 }
 .highscore {
-  background-color: #F5F5F7;
+  background-color: #422EB8;
   text-align: center;
   border-radius: 10px;
   padding: 0.6rem 1rem;
@@ -39,9 +39,10 @@
   padding: 0;
   margin: 0;
   font-weight: 600;
+  color: #F5F5F7
 }
 .highscore h4 span {
-  color: #E35416;
+  color: #FFB300;
   margin-left: 0.8rem;
   font-size: 22px;
   font-weight: 800;

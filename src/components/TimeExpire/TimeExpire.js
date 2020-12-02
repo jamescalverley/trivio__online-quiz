@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimeExpire.css';
 import { useHistory } from 'react-router-dom';
 
 function TimeExpire(props){
@@ -16,7 +17,7 @@ function TimeExpire(props){
 
     return (
         <div className="time-expire-container">
-          <h1>TIME EXPIRED !!</h1>
+          <h1>TIME IS UP !</h1>
           <button onClick={handleRestartQuiz}>Restart Quiz</button>
           <button onClick={handleHomeBtn}>Home</button>
         </div>
