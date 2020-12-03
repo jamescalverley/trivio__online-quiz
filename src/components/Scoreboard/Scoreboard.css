@@ -1,32 +1,68 @@
 .scoreboard-page {
-  padding: 2rem 6rem;
+  padding: 2rem 6rem 6rem 6rem;
   background-color: #2E2182;
 }
 .scoreboard-page h2 {
-  font-size: 4rem;
-  font-weight: 600;
-  color: #E94256;
+  font-size: 48px;
+width: -moz-fit-content;
+width: fit-content;
+font-family: 'Source Sans Pro', sans-serif;
+font-weight: 800;
+color: #FC5744;
+margin: 0;
+letter-spacing: 1px;
+word-spacing: 5px;
 }
 .scoreboard-page h3 {
   font-size: 2rem;
   font-weight: 400;
   color: #FFB300;
-  margin: 0;
 }
-.scores-container {
+
+.highscores-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
-.highscores-container {
-  margin-right: 8rem; 
+.allscores-container { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
+
 .score {
-  background-color: antiquewhite;
-  padding: 1rem 1.4rem;
-  margin: 0.5rem;
+  background-color: #F5F5F7;
+  padding: 1.4rem 3rem 1.4rem 1.4rem;
+  margin: 0.5rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
 }
-.score h5 {
-  color: #E94256;
+
+
+.score-number {
+  background-color: #0066CC;
+  font-weight: 800;
+  padding: 0.8rem;
+  color: #F5F5F7;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+}
+.score-info {
+  margin-left: 1rem;
+}
+.score-info h4 {
+  font-size: 1.4rem;
+  color: #2E2182;
   margin: 0;
+}
+.score-info h5 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0;
+}
+.high {
+  border: solid #E94256 2px;
 }
