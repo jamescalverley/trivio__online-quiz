@@ -20,12 +20,5 @@
 }
 .answers button {
   margin: 1rem;
-}
-.answers button:hover {
-  background: aqua;
-  font-weight: bold;
-}
-.answers button:focus {
-  background: red;
-  font-weight: bold;
+  padding: 1rem
 }

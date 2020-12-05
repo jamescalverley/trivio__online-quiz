@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function NavBar(){
 
@@ -10,13 +10,12 @@ function NavBar(){
       <nav>
         <ul>
           <li>
-          <NavLink
-              to="/home"
+            <Link
+              to="/"
               className="link"
-              activeclassname="active"
             >
-              Home
-            </NavLink> 
+              Home (LOGO)
+            </Link> 
           </li>
           <li>
             <NavLink
