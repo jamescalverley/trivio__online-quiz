@@ -1,0 +1,15 @@
+.next-question {
+  padding: 4rem;
+}
+.next-question button {
+  width: 150px;
+  height: 44px;
+  filter: drop-shadow(0px 9px 18px rgba(0, 0, 0, 0.2));
+  border: none;
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #3C35B1;
+}

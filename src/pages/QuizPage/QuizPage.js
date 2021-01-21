@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './QuizPage.css';
-import TimeExpire from '../TimeExpire/TimeExpire';
-import PreQuiz from '../PreQuiz/PreQuiz';
-import QuizSelect from '../QuizSelect/QuizSelect';
-import Quiz from '../Quiz/Quiz';
-import Timer from '../Timer/Timer';
-import EndQuiz from '../EndQuiz/EndQuiz';
+import TimeExpire from '../../components/TimeExpire/TimeExpire';
+import PreQuiz from '../../components/PreQuiz/PreQuiz';
+import QuizSelect from '../../components/QuizSelect/QuizSelect';
+import Quiz from '../../components/Quiz/Quiz';
+import Timer from '../../components/Timer/Timer';
+import EndQuiz from '../../components/EndQuiz/EndQuiz';
 const axios = require('axios');
 
 function QuizPage(){
@@ -33,14 +33,13 @@ function QuizPage(){
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
 
-  console.log("----> QUIZ DATA", quizData)
+  console.log("----> QUIZ Header", quizHeaders)
 
   async function getQuizHeaders(){
     try {
       const result = await axios.get('/api/quizheaders');
       //console.log("QUIZ HEADERS", result);
       const quizHeaders = result.data.data;
-      //console.log(">>>", quizHeaders);
       setQuizHeaders(quizHeaders)
     } catch (err) {
       console.log("ERROR", err)
