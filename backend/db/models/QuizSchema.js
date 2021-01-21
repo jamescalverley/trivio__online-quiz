@@ -50,6 +50,14 @@ const QuizSchema = new Schema({
     type: Number,
     required: true
   },
+  imageIcon: {
+    type: String, 
+    required: true
+  },
+  imageAlt: {
+    type: String, 
+    required: true
+  },
   questionSet: [QuestionSchema]
 });
 
