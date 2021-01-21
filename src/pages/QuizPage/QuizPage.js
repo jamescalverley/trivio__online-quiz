@@ -90,7 +90,7 @@ function QuizPage(){
     preQuizTimer();
     resetQuiz();
   };
-  
+  // set to 500ms for UI work, set back to 4500
   function preQuizTimer( quizTimeLimit ){
     setTimeout( () => {
       setPreQuizDisplay(false);
@@ -98,7 +98,7 @@ function QuizPage(){
       startTimer();
       startQuiz();
       trueTimer( quizTimeLimit );
-    }, 4500 );
+    }, 500 );
   };
 
   function trueTimer(seconds ){

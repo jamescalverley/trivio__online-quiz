@@ -39,7 +39,7 @@ function HomePage(){
         <h2>Test Your Knowledge</h2>
         
         <Link to ="/quiz">
-          <button>LETS'S PLAY</button>
+          <button>LET'S PLAY</button>
         </Link> 
       </div>
     </div>
