@@ -10,8 +10,7 @@ import imgTarget from '../../img/quiz-img-target.png';
 
 
 function QuizHeader(props){
-  console.log("IMG", props.image)
-
+  
   function getImage( img ){
     if ( img === "imgCamera") return imgCamera
     if ( img === "imgGlobe") return imgGlobe
@@ -26,7 +25,10 @@ function QuizHeader(props){
   function handleStart(value){
     //console.log("Button clicked", value);
     props.getQuizDataAPI(value);
-    props.handleQuizStart( props.timeLimit );
+    //props.handleQuizStart( props.timeLimit );
+    //! for UI work 
+    props.handleQuizStart( 1000 );
+    //! --------
   };
   
   return (

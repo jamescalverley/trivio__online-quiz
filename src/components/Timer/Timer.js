@@ -4,7 +4,7 @@ import './Timer.css';
 function Timer(props){
 
   const [seconds, setSeconds] = useState(props.quizSeconds);
-  
+
   useEffect( () => {
     const timer = 
     seconds > 0 && setInterval(() => {
@@ -15,10 +15,11 @@ function Timer(props){
 
   const timeWidth = ( seconds / props.quizSeconds ) * 100;
   
-  const barColor = (
-    timeWidth >= 40  ? "green" :
-    timeWidth < 40 && timeWidth > 15 ? "yellow" : "red"
-  )
+  // const barColor = (
+  //   timeWidth >= 40  ? "green" :
+  //   timeWidth < 40 && timeWidth > 15 ? "yellow" : "red" );
+
+  const barColor = "linear-gradient(90deg, #EA9C0F 50%, #FAE426 83.06%)";
   
   return (
     <div className="timer-bar-container">

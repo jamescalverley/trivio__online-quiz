@@ -10,8 +10,6 @@ const axios = require('axios');
 
 function QuizPage(){
 
-  console.log("RENDER ___ QuizPage");
-
 //* display states
   const [timeExpireDisplay, setTimeExpireDisplay] = useState(false);
   const [quizSelectDisplay, setQuizSelectDisplay] = useState(true);
@@ -23,6 +21,7 @@ function QuizPage(){
 //* current user state
   const [userScore, setUserScore] = useState(0);
   const [userCorrect, setUserCorrect] = useState(0);
+  const [userAnswersArr, setUserAnswersArr] = useState([]);
   const [bonusPoints, setBonusPoints] = useState(0);
   const [currentUserName, setCurrentUserName] = useState([]);
 
@@ -32,9 +31,7 @@ function QuizPage(){
   let questionsLength = quizData.questionSet.length;
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
-
-  console.log("----> QUIZ Header", quizHeaders)
-
+  
   async function getQuizHeaders(){
     try {
       const result = await axios.get('/api/quizheaders');
@@ -57,14 +54,14 @@ function QuizPage(){
   };
 
   function startQuiz(){
-    //console.log("starting quiz ++++ ");
+    console.log("starting quiz ++++ ");
     setQuizDisplay(true);
     setQuizSelectDisplay(false);
     setStartTime(Date.now());
   };
 
   function stopQuiz(){
-    //console.log("stopping quiz ---- ");
+    console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setEndDisplay(true);
   };
@@ -102,9 +99,8 @@ function QuizPage(){
   };
 
   function trueTimer(seconds ){
-   console.log(`True timer starting --- ${seconds}`)
+    console.log(`True timer starting --- ${seconds}`);
     setTimeout( () => {
-      //console.log("TIME IS UP");
       setTimeExpireDisplay(true);
       setQuizDisplay(false);
       setTimerDisplay(false);
@@ -146,6 +142,8 @@ function QuizPage(){
           startQuiz={startQuiz}
           userScore={userScore}
           setUserScore={setUserScore}
+          setUserAnswersArr={setUserAnswersArr}
+          userAnswersArr={userAnswersArr}
           userCorrect={userCorrect} 
           setUserCorrect={setUserCorrect} 
           setEndTime={setEndTime}
@@ -157,8 +155,10 @@ function QuizPage(){
           
       { endDisplay &&
         <EndQuiz 
+          quizData={quizData}
           userCorrect={userCorrect} 
           userScore={userScore} 
+          userAnswersArr={userAnswersArr}
           bonusPoints={bonusPoints}
           quizTitle={quizData.quizTitle}
           quizID={quizData._id}
@@ -175,25 +175,3 @@ function QuizPage(){
 };
 
 export default QuizPage;
-
-//* colors
-// purple
-//#E94256
-
-//red
-//#E94256
-
-//orange
-// #E35416
-
-//yellow
-//#FFB300
-
-//blue 
-// #0066CC
-
-// light blue
-// #2997FF
-
-// green 
-// #0B9E43
