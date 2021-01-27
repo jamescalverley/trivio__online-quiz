@@ -12,7 +12,7 @@ function TimeExpire(props){
     };
 
     function handleHomeBtn(){
-      history.push('/home');
+      history.push('/');
     };
 
     return (

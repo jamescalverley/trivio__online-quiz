@@ -1,9 +1,14 @@
 .quiz {
   max-width: 800px;
-  margin: 1rem auto;
+  margin: 55px auto;
 }
 .quiz h2 {
-  background-color: #FC5744;
-  padding: 1rem 1rem 1rem 2rem;
-  border-radius: 10px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  font-variant: small-caps;
+  margin: 0 auto;
 }

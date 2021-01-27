@@ -11,10 +11,13 @@ function QuizSelect(props){
     props.setQuizSelectDisplay(false);
   };
 
+  
+
   return (
-    <div className="quizselect-container">
+    <div className="quizselect">
       <div className="quizselect-title">
         <h2>Popular quizzes</h2>
+        
       </div>
       <div className="quizheader-container">
         { props.quizHeaders.map( quiz => 
@@ -27,6 +30,8 @@ function QuizSelect(props){
             timeLimit={quiz.timeLimit}
             quizID={quiz._id}
             key={quiz._id}
+            image={quiz.imageIcon}
+            alt={quiz.imageAlt}
           />
         )}
       </div>
@@ -36,3 +41,4 @@ function QuizSelect(props){
 };
 
 export default QuizSelect;
+

@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 // eslint-disable-next-line no-unused-vars
 const colors = require('colors');
 const dbConnection = require('./backend/db/config/db.js');

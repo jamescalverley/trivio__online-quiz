@@ -15,7 +15,7 @@ function PreQuiz(){
     <div className="prequiz-container">
       { seconds > 0 &&
         <div className="countdown">
-          <h2>Quiz Starting in</h2>
+          <h2>Quiz starting in</h2>
           <h1>
           <span>{seconds}</span> 
           { seconds > 1 ? "seconds" : "second" }

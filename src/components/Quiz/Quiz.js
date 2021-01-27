@@ -5,12 +5,11 @@ import Question from '../Question/Question';
 
 function Quiz(props){
     
-    console.log("RENDER ___ Quiz")
-
     const quizData = props.quizData;
     const questions = quizData.questionSet;
     const [index, setIndex] = useState(0);
     
+  
     function timeBonus(endTime){
         //console.log(`START: ${props.startTime} END: ${endTime} CORRECT: ${props.userCorrect}`)
         const timeTaken = Math.floor( (endTime - props.startTime) / 1000 );
@@ -31,15 +30,18 @@ function Quiz(props){
 
     return (
       <div className="quiz">
-        <h2>Quiz - {quizData.quizTitle}</h2>
+        <h2>{quizData.quizTitle}</h2>
         <div className="quiz-container">
           <Question 
-              activeQ={questions[index]} 
-              nextQuestion={nextQuestion}
-              userScore={props.userScore}
-              setUserScore={props.setUserScore} 
-              userCorrect={props.userCorrect} 
-              setUserCorrect={props.setUserCorrect}
+            activeQ={questions[index]} 
+            questionNum={quizData.questionNum}
+            nextQuestion={nextQuestion}
+            userScore={props.userScore}
+            setUserScore={props.setUserScore} 
+            userCorrect={props.userCorrect} 
+            setUserCorrect={props.setUserCorrect}
+            setUserAnswersArr={props.setUserAnswersArr}
+            userAnswersArr={props.userAnswersArr}
           />
         </div>
       </div>       

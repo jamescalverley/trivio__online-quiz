@@ -1,0 +1,22 @@
+.answerBtn {
+  width: 255px;
+  height: 52px;
+  background: transparent;
+  border: 3px solid rgb(199,168,251, 0.3);
+  border-radius: 50px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  color: #FFFFFF;
+  margin: 10px 15px;
+  padding: 0 2rem;
+  text-align: left;
+}
+.checked {
+  background: rgb(199,168,251);
+  border: 3px solid rgb(199,168,251, 0.3);
+}
+.answerBtn:hover {
+  border: 3px solid rgb(199,168,251, 1);
+}

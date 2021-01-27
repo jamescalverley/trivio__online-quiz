@@ -1,18 +1,15 @@
 .countdown {
-  margin: 8rem auto;
-  padding: 2rem;
-  min-height: 10rem;
+  margin: 4rem auto;
   text-align: center;
-  max-width: 600px;
-  border-radius: 10px;
-  background-color: #FFB300;
   color: #F5F5F7;
 }
 .countdown h2 {
   font-size: 36px;
+  font-weight: 200;
 }
 .countdown h1 {
   font-weight: 400;
+  font-size: 56px;
 }
 .countdown h1 span {
   color: #FC5744;
@@ -22,14 +19,11 @@
 .begin {
   margin: 8rem auto;
   min-height: 10rem;
-  padding: 2rem;
   text-align: center;
-  max-width: 600px;
-  border-radius: 10px;
-  color: #F5F5F7;
-  background-color: #0B9E43;
 }
 .begin h2 {
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 56px;
+  color: #0B9E43;
 }
