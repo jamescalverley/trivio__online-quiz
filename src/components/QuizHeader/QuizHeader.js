@@ -48,7 +48,7 @@ function QuizHeader(props){
           <p>{props.questions} Questions</p>
           <p>{props.timeLimit} seconds</p>
         </div> */}
-        <div className="highscore">
+        <div className="highscore-number">
           <h4>High Score<span>{props.topScore}</span></h4>
         </div>
         <button onClick={ () => handleStart(props.quizID) }>PLAY</button>
