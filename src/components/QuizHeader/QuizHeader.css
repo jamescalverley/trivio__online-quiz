@@ -59,12 +59,12 @@
   padding: 0.6rem 1rem;
   width: fit-content;
 } */
-.highscore {
+.highscore-number {
   margin: 0;
   text-align: center;
   width: fit-content;
 }
-.highscore h4 {
+.highscore-number h4 {
   margin: 10px 0 20px 0;
   font-style: normal;
   font-weight: 500;
@@ -72,7 +72,7 @@
   line-height: 19px;
   color: #F5F5F7;
 }
-.highscore h4 span {
+.highscore-number h4 span {
   /* color: #FFB300; */
   color: #F5F5F7;
   margin-left: 0.6rem;

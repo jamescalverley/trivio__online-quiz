@@ -3,22 +3,32 @@ import './Timer.css';
 
 function Timer(props){
 
-    const [seconds, setSeconds] = useState(props.quizSeconds);
-   
-    useEffect( () => {
-        const timer = 
-        seconds > 0 && setInterval(() => {
-            setSeconds( seconds - 1 );
-        }, 1000);
-        return () => clearInterval(timer);       
-    }, [seconds] );
+  const [seconds, setSeconds] = useState(props.quizSeconds);
 
-    return (
-        <div className="timer-container">
-            <h3>Time Remaining: <span>{seconds}</span>seconds</h3>
-            
-        </div>
-    );
+  useEffect( () => {
+    const timer = 
+    seconds > 0 && setInterval(() => {
+        setSeconds( seconds - 1 );
+    }, 1000);
+    return () => clearInterval(timer);       
+  }, [seconds] );
+
+  const timeWidth = ( seconds / props.quizSeconds ) * 100;
+  
+  // const barColor = (
+  //   timeWidth >= 40  ? "green" :
+  //   timeWidth < 40 && timeWidth > 15 ? "yellow" : "red" );
+
+  const barColor = "linear-gradient(90deg, #EA9C0F 50%, #FAE426 83.06%)";
+  
+  return (
+    <div className="timer-bar-container">
+      <h4>Time Remaining</h4>
+      <div className="timer-bar">
+        <div className="bar" style={ { width: `${timeWidth}%`, background: `${barColor}`}}></div>
+      </div>
+    </div>
+  );
 };
 
 export default Timer;

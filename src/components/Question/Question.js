@@ -6,7 +6,6 @@ import AnswerBtn from '../AnswerBtn/AnswerBtn';
 
 function Question(props){
 
-    //console.log("RENDER ___ Question")
 
   const [nextDisplay, setNextDisplay] = useState(false);
   const [userAnswer, setUserAnswer] = useState('');
@@ -14,19 +13,20 @@ function Question(props){
   const question = props.activeQ;
   
   function setAnswer(ev){
-    console.log("selected answer ---> ", ev.target.value)
     setUserAnswer(ev.target.value);
     setNextDisplay(true);
   };
 
   function checkAnswer(ev){
-    console.log("checking answer");
     const correctAnswer = question.correctAnswer;
+   
     setNextDisplay(false);
     if ( correctAnswer === userAnswer ) {
         props.setUserScore( props.userScore + 100 )
         props.setUserCorrect( props.userCorrect + 1)
+        props.setUserAnswersArr( [ ...props.userAnswersArr, true ] );
     } else 
+        props.setUserAnswersArr( [ ...props.userAnswersArr, false ] );
         return 
   };
 

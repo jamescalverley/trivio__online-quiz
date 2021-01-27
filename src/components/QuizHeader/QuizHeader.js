@@ -10,8 +10,7 @@ import imgTarget from '../../img/quiz-img-target.png';
 
 
 function QuizHeader(props){
-  console.log("IMG", props.image)
-
+  
   function getImage( img ){
     if ( img === "imgCamera") return imgCamera
     if ( img === "imgGlobe") return imgGlobe
@@ -26,7 +25,10 @@ function QuizHeader(props){
   function handleStart(value){
     //console.log("Button clicked", value);
     props.getQuizDataAPI(value);
-    props.handleQuizStart( props.timeLimit );
+    //props.handleQuizStart( props.timeLimit );
+    //! for UI work 
+    props.handleQuizStart( 1000 );
+    //! --------
   };
   
   return (
@@ -46,7 +48,7 @@ function QuizHeader(props){
           <p>{props.questions} Questions</p>
           <p>{props.timeLimit} seconds</p>
         </div> */}
-        <div className="highscore">
+        <div className="highscore-number">
           <h4>High Score<span>{props.topScore}</span></h4>
         </div>
         <button onClick={ () => handleStart(props.quizID) }>PLAY</button>
