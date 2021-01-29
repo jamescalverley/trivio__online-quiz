@@ -7,7 +7,7 @@ function PreQuiz(){
         const timer = 
         seconds > 0 && setInterval(() => {
             setSeconds( seconds - 1 );
-        }, 1000);
+        }, 800);
         return () => clearInterval(timer);       
     }, [seconds] );
 

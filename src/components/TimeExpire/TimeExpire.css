@@ -1,6 +1,6 @@
 .time-expire-container {
   background-color: #E94256;
-  padding: 3rem;
+  padding: 3rem 3rem 2.4rem 3rem;
   color: #F5F5F7;
   text-align: center;
   margin: auto;
@@ -10,4 +10,39 @@
 .time-expire-container h1 {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 33px;
+  color: #FFFFFF;
+}
+
+
+.time-expire-container button {
+  padding: 0.5rem;
+  margin: 0;
+  width: 114.58px;
+  height: 44px;
+  background: #3C35B1;
+  border-radius: 100px;
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FAE426;
+  margin: 0.6rem;
+}
+
+.time-expire-container button:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+.homeBtn {
+  background: #F5F5F7;
+  color: black;
+}
+.homeBtn {
+  background: #F5F5F7;
+  color: black;
 }
