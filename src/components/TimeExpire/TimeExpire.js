@@ -5,9 +5,8 @@ import { useHistory } from 'react-router-dom';
 function TimeExpire(props){
 
     const history = useHistory();
-
+    
     function handleRestartQuiz(){
-      history.push('/quiz')
       props.restartQuiz();
     };
 
@@ -18,8 +17,8 @@ function TimeExpire(props){
     return (
         <div className="time-expire-container">
           <h1>TIME IS UP !</h1>
-          <button onClick={handleRestartQuiz}>Restart Quiz</button>
-          <button onClick={handleHomeBtn}>Home</button>
+          <button onClick={handleRestartQuiz} className="restart">Restart Quiz</button>
+          <button onClick={handleHomeBtn} className="homeBtn">Home</button>
         </div>
       );
 };

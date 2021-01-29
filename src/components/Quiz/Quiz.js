@@ -14,7 +14,7 @@ function Quiz(props){
   let { selectedQuiz } = useParams();
   
   const [quizData, setQuizData] = useState();
-  const [userData, setUserData] = useState({ userCorrect: 0, userScore: 0, userAnswersArr: [ ] });
+  const [userData, setUserData] = useState({ userCorrect: 0, userScore: 0, userAnswersArr: [] });
 
   //* bonus point states
   const [startTime, setStartTime] = useState(0);
@@ -56,6 +56,15 @@ function Quiz(props){
     setEndTime( Date.now() )
   };
 
+  function restartQuiz(){
+    console.log("---Restarting quiz");
+    setTimeExpireDisplay(false);
+    setQuizDisplay(true);
+    setTimerDisplay(true);
+    // reset userData
+    setUserData({ userCorrect: 0, userScore: 0, userAnswersArr: [ ] })
+  };
+
   function timeExpireInit(){
     console.log("TIME EXPIRE INIT");
     setTimerDisplay(false);
@@ -69,7 +78,7 @@ function Quiz(props){
     const preQuizTimer = setTimeout( () => {
       console.log("preQuizTimer ----> ");
       preQuizClose();
-    }, 3000);
+    }, 3600);
 
     const timer = setTimeout( () => {
       console.warn("TIME IS UP")
@@ -91,7 +100,7 @@ function Quiz(props){
         } 
         { timeExpireDisplay && 
           <TimeExpire 
-            //restartQuiz={restartQuiz}
+            restartQuiz={restartQuiz}
           /> 
         } 
         { quizDisplay && 

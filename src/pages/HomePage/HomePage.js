@@ -38,12 +38,12 @@ function HomePage(){
         <h1>Quiz<span>.</span>App</h1>
         <h2>Test Your Knowledge</h2>
         
-        <Link to ="/quiz">
+        <Link to ="/quiz-select">
           <button>LET'S PLAY</button>
         </Link> 
       </div>
     </div>
-  )
+  );
 };
 
 export default HomePage;
