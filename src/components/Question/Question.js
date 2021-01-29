@@ -3,14 +3,16 @@ import './Question.css';
 import NextQuestion from '../NextQuestion/NextQuestion';
 import AnswerBtn from '../AnswerBtn/AnswerBtn';
 
-
 function Question(props){
-
 
   const [nextDisplay, setNextDisplay] = useState(false);
   const [userAnswer, setUserAnswer] = useState('');
+
+  const [qIndex, setQIndex] = useState(0);
   
-  const question = props.activeQ;
+  console.log("USER DATA", props.userData)
+
+  const questionSet = props.entireQ;
   
   function setAnswer(ev){
     setUserAnswer(ev.target.value);
@@ -18,24 +20,41 @@ function Question(props){
   };
 
   function checkAnswer(ev){
-    const correctAnswer = question.correctAnswer;
-   
+    const correctAnswer = questionSet[qIndex].correctAnswer;
     setNextDisplay(false);
+    console.log(`Checking -- ${correctAnswer} vs ${userAnswer}`)
     if ( correctAnswer === userAnswer ) {
-        props.setUserScore( props.userScore + 100 )
-        props.setUserCorrect( props.userCorrect + 1)
-        props.setUserAnswersArr( [ ...props.userAnswersArr, true ] );
-    } else 
-        props.setUserAnswersArr( [ ...props.userAnswersArr, false ] );
-        return 
+      console.log("CORRECT")
+      const updated = {
+        score: props.userData.userScore + 100,
+        correct: props.userData.userCorrect + 1,
+        answers: [ ...props.userData.userAnswersArr, true ]
+      };
+      props.setUserData(  { ...props.userData, userScore: updated.score, userCorrect: updated.correct, userAnswersArr: updated.answers })
+    } else {
+      console.log("INCORRECT") 
+        const updated = { answers: [ ...props.userData.userAnswersArr, false ]}
+      
+        props.setUserData(  { ...props.userData, userAnswersArr: updated.answers })
+    }
   };
+
+  function nextQuestion(){
+    console.log("nextQuestion ----")
+    if (qIndex < questionSet.length - 1){
+        setQIndex( qIndex + 1 );
+    } else {
+        console.log("QUIZ FINISHED");
+        props.stopQuiz();
+    };
+};
 
   return (
     <div className="active-question">
-      <h3>Question {question.questionNumber} / {props.questionNum}</h3>
-      <p>{question.question}</p>
+      <h3>Question {questionSet[qIndex].questionNumber} / {questionSet.length}</h3>
+      <p>{questionSet[qIndex].question}</p>
       <div className="answers">
-        {question.answers.map( answer => 
+        {questionSet[qIndex].answers.map( answer => 
           <AnswerBtn 
             userAnswer={userAnswer} 
             setAnswer={setAnswer} 
@@ -46,10 +65,11 @@ function Question(props){
         )}    
       </div>
       { nextDisplay && 
-        <NextQuestion nextQuestion={props.nextQuestion} checkAnswer={checkAnswer} />
+        <NextQuestion nextQuestion={nextQuestion} checkAnswer={checkAnswer} />
       }
     </div>
   );
 };
 
 export default Question;
+
