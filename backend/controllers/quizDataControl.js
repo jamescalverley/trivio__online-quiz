@@ -3,9 +3,29 @@ const Quiz = require('../db/models/QuizSchema');
 const getQuizData = async (req,res) => {
   try {
     const quizNeeded = req.params.quiz;
-    //console.log("Quiz needed".red, quizNeeded)
+    console.log("Quiz needed".red, quizNeeded)
     const quizData = await Quiz.findOne({ _id: quizNeeded });
-    //console.log("SENDING QUIZ DATA --- DB".red, quizData)
+    console.log("SENDING QUIZ DATA --- DB".red, quizData)
+    return res.status(200).json({
+      success: true,
+      message: "Success - getQuizData",
+      data: quizData});
+  } catch (err) {
+      return res.status(500).json({
+        success: false, 
+        message: "SERVER ERROR -- getQuizData", 
+        error: err 
+      });
+  };
+};
+
+const getQuizDataTEST = async (req,res) => {
+  try {
+    const quizNeeded = req.params.quiz;
+    console.log(req.params)
+    console.log("Quiz needed".red, quizNeeded)
+    const quizData = await Quiz.find({ quizTitle: quizNeeded });
+    console.log("SENDING QUIZ DATA --- DB".red, quizData)
     return res.status(200).json({
       success: true,
       message: "Success - getQuizData",
@@ -53,4 +73,4 @@ const addTopScore = async (req,res) => {
   };
 };
 
-module.exports = { getQuizData, getQuizHeader, addTopScore }; 
+module.exports = { getQuizData, getQuizDataTEST, getQuizHeader, addTopScore }; 
