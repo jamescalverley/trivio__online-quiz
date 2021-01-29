@@ -3,12 +3,16 @@ const UserScore = require('../db/models/UserScoreSchema');
 const getUserScores = async (req,res) => {
   console.log(req.url + req.method);
   try {
-    const scores = await UserScore.find();
-    console.log("Getting User Scores", scores);
+    const scoresNum = await UserScore.find().countDocuments();
+    console.log("Number of scores: ".blue, scoresNum);
+    const scores = await UserScore.find( { "score": { $gte: 0 } }).sort( {"score": -1 }).limit( 13 );
+    console.log("Returning scores", scores.length);
+    const highArr = scores.splice(0,3);
     return res.status(200).json({
       success: true, 
       results: scores.length, 
-      data: scores
+      highScores: highArr, 
+      allScores: scores
     });
   } catch (err) {
       return res.status(500).json({

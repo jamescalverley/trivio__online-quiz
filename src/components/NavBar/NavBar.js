@@ -18,14 +18,14 @@ function NavBar(){
         </div>
         <div className="right-links">
           <NavLink
-            to="/quiz"
+            to="/quiz-select"
             className="link"
             activeclassname="active"
           >
             Popular Quizzes
           </NavLink> 
           <NavLink
-            to="/scoreboard"
+            to="/leaderboard"
             className="link"
             activeclassname="active"
           >
