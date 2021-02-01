@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './QuizSelectPage.css';
 import QuizHeader from '../../components/QuizHeader/QuizHeader';
+//Animations
+import { motion }  from 'framer-motion';  
+import { pageAnimation } from '../../animations';
 const axios = require('axios');
 
 
@@ -23,7 +26,13 @@ function QuizSelect(props){
   }, []);
 
   return (
-    <div className="quizselect">
+    <motion.div 
+      className="quizselect"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <div className="quizselect-title">
         <h2>Popular quizzes</h2>
       </div>
@@ -38,7 +47,7 @@ function QuizSelect(props){
           />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

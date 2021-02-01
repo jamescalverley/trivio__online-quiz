@@ -4,11 +4,15 @@ import {v4 as uuidv4} from 'uuid';
 import Medal_1 from '../../img/medal_1.png';
 import Medal_2 from '../../img/medal_2.png';
 import Medal_3 from '../../img/medal_3.png';
+//Animations
+import { motion }  from 'framer-motion';  
+import { pageAnimation, scoreAnimation, ribbonAnimation } from '../../animations';
 const axios = require('axios');
 
 function Scoreboard(props){
 
   const [scores, setScores] = useState({ display: false })
+  const [display, setDisplay] = useState(false);
   
   console.log("SCORES", scores)
 
@@ -18,8 +22,8 @@ function Scoreboard(props){
       console.log("RESULT", result)
       const highScoresArr = result.data.highScores;
       const allScoresArr = result.data.allScores;
-      setScores( { ...scores, highScores: highScoresArr, allScores: allScoresArr, display: true  })
-      //etDisplay(true);
+      setScores( { ...scores, highScores: highScoresArr, allScores: allScoresArr })
+      setDisplay(true);
     } catch (err) {
         console.log("ERROR", err)
     };
@@ -29,16 +33,26 @@ function Scoreboard(props){
     getScoreData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
-    <div className="scoreboard-page">
-      { scores.display &&
+    <motion.div 
+      className="scoreboard-page"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
+      { display &&
       <>
         <h2>Leaderboard</h2>
         <div className="scores-container">
           <div className="highscores-container">
-
-            <div className="ribbon-wrapper lower">
+            <motion.div 
+              className="ribbon-wrapper lower"
+              variants={ribbonAnimation.second}
+              intital="hidden"
+              animate="show"
+            >
               <div className="medal-image-sm">
                 <img src={Medal_2} alt="first-place-medal"/>
               </div>
@@ -56,8 +70,13 @@ function Scoreboard(props){
                   <h5>{scores.highScores[1].quiz}</h5>
                 </div> 
               </div>
-            </div>
-            <div className="ribbon-wrapper">
+            </motion.div>
+            <motion.div 
+              className="ribbon-wrapper"
+              variants={ribbonAnimation.first}
+              intital="hidden"
+              animate="show"
+            >
               <div className="medal-image-lg">
                 <img src={Medal_1} alt="first-place-medal"/>
               </div>
@@ -75,8 +94,13 @@ function Scoreboard(props){
                   <h5>{scores.highScores[0].quiz}</h5>
                 </div> 
               </div>
-            </div>
-            <div className="ribbon-wrapper lower">
+            </motion.div>
+            <motion.div 
+              className="ribbon-wrapper lower"
+              variants={ribbonAnimation.third}
+              intital="hidden"
+              animate="show"
+            >
               <div className="medal-image-sm">
                 <img src={Medal_3} alt="first-place-medal"/>
               </div>
@@ -94,11 +118,17 @@ function Scoreboard(props){
                   <h5>{scores.highScores[2].quiz}</h5>
                 </div> 
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className="allscores-container"> 
             { scores.allScores.map( s => 
-              <div key={uuidv4()} className="score">
+              <motion.div 
+                key={uuidv4()} 
+                className="score"
+                variants={scoreAnimation}
+                intital="hidden"
+                animate="show"
+              >
                 <div className="score-info">
                   <h4>{scores.allScores.indexOf( s ) + 4 }th</h4>
                   <h5>{s.username}</h5>
@@ -107,13 +137,13 @@ function Scoreboard(props){
                   <p>{s.quiz}</p>
                   <h5>{s.score}</h5>
                 </div>
-              </div>
+              </motion.div>
             )}
           </div> 
         </div> 
       </>
       }
-    </div>
+    </motion.div>
   );
 };
 
