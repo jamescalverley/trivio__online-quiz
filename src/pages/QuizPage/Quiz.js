@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Quiz.css';
-import PreQuiz from '../PreQuiz/PreQuiz';
-import TimerContainer from '../Timer/TimerContainer';
-import TimeExpire from '../TimeExpire/TimeExpire';
-import Question from '../Question/Question';
-import EndQuiz from '../EndQuiz/EndQuiz';
+import PreQuiz from '../../components/PreQuiz/PreQuiz';
+import TimerContainer from '../../components/Timer/TimerContainer';
+import TimeExpire from '../../components/TimeExpire/TimeExpire';
+import Question from '../../components/Question/Question';
+import EndQuiz from '../../components/EndQuiz/EndQuiz';
 import { useParams } from 'react-router-dom';
+//Animations
+import { motion }  from 'framer-motion';  
+import { pageAnimation } from '../../animations';
 const axios = require('axios');
 
 
@@ -91,7 +94,13 @@ function Quiz(props){
     }, [selectedQuiz]);
 
     return (
-      <div className="quiz">
+      <motion.div 
+        className="quiz"
+        variants={pageAnimation}
+        intial="hidden"
+        animate="show"
+        exit="exit"  
+      >
         { preQuizDisplay && 
           <PreQuiz />
         }
@@ -124,7 +133,7 @@ function Quiz(props){
             endTime={endTime}
           /> 
         }
-      </div>       
+      </motion.div>       
     );
 };
 

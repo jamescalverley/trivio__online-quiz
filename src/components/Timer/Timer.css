@@ -2,7 +2,7 @@
 .timer-bar-container {
   text-align: center;
   width: 800px;
-  margin: auto;
+  margin: 0 auto 2rem auto;
 }
 .timer-bar-container h4 {
   color: #FFFFFF;

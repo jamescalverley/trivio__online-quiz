@@ -9,7 +9,7 @@ function TimerContainer({ timeExpireInit }) {
     const timer = setTimeout( () => {
       console.log("TIME IS UP ");
       timeExpireInit();
-    }, 63000 );
+    }, 61000 );
 
     return () => {
       console.log("TIMER CONTAINER ___ END");

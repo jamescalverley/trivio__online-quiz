@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './AnswerBtn.css';
+//Animations
+import { motion }  from 'framer-motion';  
+import { answerBtnAnimation,  } from '../../animations';
 
 function AnswerBtn(props) {
 
@@ -19,9 +22,25 @@ function AnswerBtn(props) {
   }, [props.answer, props.userAnswer]);
 
   return (
-    <div>
-      <button className={`answerBtn ${checked}`} onClick={handleClick} value={props.answer}>{props.answer}</button>
-    </div>
+    
+    <motion.div
+      variants={answerBtnAnimation}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.button 
+        className={`answerBtn ${checked}`} 
+        onClick={handleClick} 
+        value={props.answer}
+        whileHover={answerBtnAnimation.hover}
+        whileTap={answerBtnAnimation.tap}
+      >
+        {props.answer}
+      </motion.button>
+
+      
+    </motion.div>
+   
   );
 }
 

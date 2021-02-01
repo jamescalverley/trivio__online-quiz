@@ -1,9 +1,8 @@
 body {
   background: #3225A9;
 }
-
 .quiz {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 55px auto;
 }
 .quiz h2 {
@@ -14,5 +13,5 @@ body {
   line-height: 21px;
   color: #FFFFFF;
   font-variant: small-caps;
-  margin: 0 auto;
+  margin: 1rem auto 0.5rem auto;
 }

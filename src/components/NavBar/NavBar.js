@@ -1,13 +1,17 @@
 import React from 'react';
 import './NavBar.css';
 import { NavLink, Link } from 'react-router-dom';
+import { motion }  from 'framer-motion';  
 
 function NavBar(){
 
   return (
     <div className="navbar">
       <div className="nav-content">
-        <div className='logo'>
+        <motion.div 
+          whileHover={{ scale: 1.1, transition: { duration: 0.4 } }} 
+          whileTap={{ scale: 0.8 }}
+          className='logo'>
           <Link to="/" className="link logo-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-patch-question" viewBox="0 0 16 16">
               <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"/>
@@ -15,7 +19,7 @@ function NavBar(){
               <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"/>
             </svg>
           </Link> 
-        </div>
+        </motion.div>
         <div className="right-links">
           <NavLink
             to="/quiz-select"

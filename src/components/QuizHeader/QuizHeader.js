@@ -7,6 +7,9 @@ import imgMic from '../../img/quiz-img-mic.png';
 import imgPalette from '../../img/quiz-img-palette.png';
 import imgSave from '../../img/quiz-img-save.png';
 import imgTarget from '../../img/quiz-img-target.png';
+//Animations
+import { motion }  from 'framer-motion';  
+import { playBtnAnimation } from '../../animations';
 
 function QuizHeader(props){
   
@@ -24,8 +27,8 @@ function QuizHeader(props){
   let history = useHistory();
   function handleClick(){
     history.push(`/quiz/${props.title}`)
-  }
-  
+  };
+
   return (
     <div className="quizheader-wrapper">
       <div className="image">
@@ -36,7 +39,11 @@ function QuizHeader(props){
         <div className="highscore-number">
           <h4>High Score<span>{props.topScore}</span></h4>
         </div>
-        <button onClick={handleClick}>PLAY</button>
+        <motion.button 
+          onClick={handleClick}
+          whileHover={playBtnAnimation.hover}
+          whileTap={playBtnAnimation.tap}
+        >PLAY</motion.button>
       </div>
     </div>
   );

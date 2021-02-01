@@ -1,34 +1,40 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
 import QuizSelectPage from './pages/QuizSelectPage/QuizSelectPage';
-import Quiz from './components/Quiz/Quiz';
+import Quiz from './pages/QuizPage/Quiz';
 import Scoreboard from './pages/Scoreboard/Scoreboard';
+import {  Switch, Route, useLocation } from 'react-router-dom';
+//Animations
+import {AnimatePresence} from 'framer-motion';
+
 
 function App() {
-  
-  return (
 
-    <Router>
-      <div className="App"> 
-        <NavBar />
-        <Route exact path={"/"} >
-          <HomePage />
-        </Route>
-        <Route exact path={"/quiz-select"} >
-          <QuizSelectPage />
-        </Route>
-        <Route path={"/quiz/:selectedQuiz"} >
-          <Quiz />  
-        </Route> 
-        <Route exact path={'/leaderboard'} >
-          <Scoreboard />
-        </Route>
-      </div>
-    </Router>
+  const location = useLocation();
+
+  return (
+    <div className="App"> 
+      <NavBar />
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key} >
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/quiz-select">
+            <QuizSelectPage />
+          </Route>
+          <Route path="/quiz/:selectedQuiz" >
+            <Quiz />  
+          </Route> 
+          <Route exact path='/leaderboard' >
+            <Scoreboard />
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </div>
   );
-}
+};
 
 export default App;
