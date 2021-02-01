@@ -100,7 +100,6 @@ function Quiz(props){
         intial="hidden"
         animate="show"
         exit="exit"  
-
       >
         { preQuizDisplay && 
           <PreQuiz />

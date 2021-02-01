@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Scoreboard.css';
 import {v4 as uuidv4} from 'uuid';
 import Medal_1 from '../../img/medal_1.png';
@@ -6,7 +6,7 @@ import Medal_2 from '../../img/medal_2.png';
 import Medal_3 from '../../img/medal_3.png';
 //Animations
 import { motion }  from 'framer-motion';  
-import { pageAnimation, scoreAnimation, ribbonAnimation } from '../../animations';
+import { pageAnimation, titleAnimation, scoreAnimation, ribbonAnimation } from '../../animations';
 const axios = require('axios');
 
 function Scoreboard(props){
@@ -44,7 +44,13 @@ function Scoreboard(props){
     >
       { display &&
       <>
-        <h2>Leaderboard</h2>
+        <motion.h2
+          variants={titleAnimation}
+          initial="hidden"
+          animate="show"
+        >
+          Leaderboard
+        </motion.h2>
         <div className="scores-container">
           <div className="highscores-container">
             <motion.div 

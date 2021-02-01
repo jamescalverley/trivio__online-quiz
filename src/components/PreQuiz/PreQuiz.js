@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './PreQuiz.css';
+//Animations
+import { motion }  from 'framer-motion';  
+import { fadeInAnimation } from '../../animations';
 
 function PreQuiz(){
   const [seconds, setSeconds] = useState(3);
@@ -12,7 +15,12 @@ function PreQuiz(){
     }, [seconds] );
 
   return (
-    <div className="prequiz-container">
+    <motion.div 
+      className="prequiz-container"
+      variants={fadeInAnimation}
+      intial="hidden"
+      animate="show"    
+    >
       { seconds > 0 &&
         <div className="countdown">
           <h2>Quiz starting in</h2>
@@ -27,7 +35,7 @@ function PreQuiz(){
           <h2>Begin!</h2>
         </div>
       }
-    </div>
+    </motion.div>
   );
 };
 

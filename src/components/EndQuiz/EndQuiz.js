@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './EndQuiz.css';
 import {useHistory} from 'react-router-dom';
+//Animations
+import { motion }  from 'framer-motion';  
+import { endQuizAnimation, pointsAnimation } from '../../animations';
 const axios = require('axios');
 
 function EndQuiz(props){
@@ -72,7 +75,12 @@ function EndQuiz(props){
     }, [])
 
     return (
-      <div className="end-quiz-container">
+      <motion.div 
+        className="end-quiz-container"
+        variants={endQuizAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <h1>Quiz Complete!</h1>
         <div className="end-quiz">
           <div className="end-quiz-display-left">
@@ -105,14 +113,33 @@ function EndQuiz(props){
           <div className="points">
             <div>
               <h2>Points</h2>
-              <h3>{props.userData.userScore}</h3>
+              <motion.h3
+                variants={pointsAnimation.points}
+                initial="hidden"
+                animate="show"
+              >
+                {props.userData.userScore}
+              </motion.h3>
             </div>
             <div>
               <h2>Time Bonus</h2>
-              <h3>{bonusPoints}</h3>
+              <motion.h3
+                variants={pointsAnimation.timebonus}
+                initial="hidden"
+                animate="show"
+              >
+                {bonusPoints}
+              </motion.h3>
             </div>
           </div>
-          <h5>Total Score: <span>{props.userData.userScore + bonusPoints}</span></h5>
+          <h5>Total Score: <motion.span
+            variants={pointsAnimation.totalscore}
+            initial="hidden"
+            animate="show"
+          >
+            {props.userData.userScore + bonusPoints}
+          </motion.span>
+          </h5>
     
           <div className="addusername">
             <p>Add username to scoreboard</p>
@@ -124,7 +151,7 @@ function EndQuiz(props){
         </div>     
       </div> 
         
-      </div>
+      </motion.div>
       
     );
 };
