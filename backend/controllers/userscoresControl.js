@@ -5,7 +5,7 @@ const getUserScores = async (req,res) => {
   try {
     const scoresNum = await UserScore.find().countDocuments();
     console.log("Number of scores: ".blue, scoresNum);
-    const scores = await UserScore.find( { "score": { $gte: 0 } }).sort( {"score": -1 }).limit( 13 );
+    const scores = await UserScore.find( { "score": { $gt: 0 } }).sort( {"score": -1 }).limit( 13 );
     console.log("Returning scores", scores.length);
     const highArr = scores.splice(0,3);
     return res.status(200).json({

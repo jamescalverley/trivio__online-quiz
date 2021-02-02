@@ -3,25 +3,6 @@ const Quiz = require('../db/models/QuizSchema');
 const getQuizData = async (req,res) => {
   try {
     const quizNeeded = req.params.quiz;
-    console.log("Quiz needed".red, quizNeeded)
-    const quizData = await Quiz.findOne({ _id: quizNeeded });
-    console.log("SENDING QUIZ DATA --- DB".red, quizData)
-    return res.status(200).json({
-      success: true,
-      message: "Success - getQuizData",
-      data: quizData});
-  } catch (err) {
-      return res.status(500).json({
-        success: false, 
-        message: "SERVER ERROR -- getQuizData", 
-        error: err 
-      });
-  };
-};
-
-const getQuizDataTEST = async (req,res) => {
-  try {
-    const quizNeeded = req.params.quiz;
     console.log(req.params)
     console.log("Quiz needed".red, quizNeeded)
     const quizData = await Quiz.find({ quizTitle: quizNeeded });
@@ -58,7 +39,7 @@ const getQuizHeader = async (req,res) => {
 
 const addTopScore = async (req,res) => {
   try { 
-    await Quiz.updateOne({ "_id": req.params.quiz }, { $set: { "topScore": req.body.topScore, "topUsername": req.body.topUsername }});
+    await Quiz.updateOne({ "quizTitle": req.params.quiz }, { $set: { "topScore": req.body.topScore, "topUsername": req.body.topUsername }});
     //console.log("Success".green, topAdd.n)
     return res.status(200).json({
       success: true,
@@ -73,4 +54,4 @@ const addTopScore = async (req,res) => {
   };
 };
 
-module.exports = { getQuizData, getQuizDataTEST, getQuizHeader, addTopScore }; 
+module.exports = { getQuizData, getQuizHeader, addTopScore }; 

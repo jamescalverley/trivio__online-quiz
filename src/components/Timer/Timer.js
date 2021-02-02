@@ -6,7 +6,6 @@ function Timer(props){
   const [seconds, setSeconds] = useState(60);
 
   useEffect( () => {
-    console.log("TIMER --- START")
     const timer = 
     seconds > 0 && setInterval(() => {
         setSeconds( seconds - 1 );
@@ -17,11 +16,6 @@ function Timer(props){
   }, [seconds] );
 
   const timeWidth = ( seconds / 60 ) * 100;
-  
-  // const barColor = (
-  //   timeWidth >= 40  ? "green" :
-  //   timeWidth < 40 && timeWidth > 15 ? "yellow" : "red" );
-
   const barColor = "linear-gradient(90deg, #EA9C0F 50%, #FAE426 83.06%)";
   
   return (

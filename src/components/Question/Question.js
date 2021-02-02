@@ -7,11 +7,7 @@ function Question(props){
 
   const [nextDisplay, setNextDisplay] = useState(false);
   const [userAnswer, setUserAnswer] = useState('');
-
   const [qIndex, setQIndex] = useState(0);
-  
-  console.log("USER DATA", props.userData)
-
   const questionSet = props.entireQ;
   
   function setAnswer(ev){
@@ -22,9 +18,7 @@ function Question(props){
   function checkAnswer(ev){
     const correctAnswer = questionSet[qIndex].correctAnswer;
     setNextDisplay(false);
-    console.log(`Checking -- ${correctAnswer} vs ${userAnswer}`)
     if ( correctAnswer === userAnswer ) {
-      console.log("CORRECT")
       const updated = {
         score: props.userData.userScore + 100,
         correct: props.userData.userCorrect + 1,
@@ -32,19 +26,15 @@ function Question(props){
       };
       props.setUserData(  { ...props.userData, userScore: updated.score, userCorrect: updated.correct, userAnswersArr: updated.answers })
     } else {
-      console.log("INCORRECT") 
         const updated = { answers: [ ...props.userData.userAnswersArr, false ]}
-      
         props.setUserData(  { ...props.userData, userAnswersArr: updated.answers })
     }
   };
 
   function nextQuestion(){
-    console.log("nextQuestion ----")
     if (qIndex < questionSet.length - 1){
         setQIndex( qIndex + 1 );
     } else {
-        console.log("QUIZ FINISHED");
         props.stopQuiz();
     };
 };

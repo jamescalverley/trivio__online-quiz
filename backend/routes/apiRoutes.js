@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getQuizData, getQuizDataTEST, getQuizHeader, addTopScore } = require('../controllers/quizDataControl');
+const { getQuizData,  getQuizHeader, addTopScore } = require('../controllers/quizDataControl');
 
 const { getUserScores, postUserScore } = require('../controllers/userscoresControl')
 
@@ -11,8 +11,8 @@ router
   .put( addTopScore )
 
 router 
-  .route('/quizdataTEST/:quiz')
-  .get( getQuizDataTEST )
+  .route('/quizdata/:quiz')
+  .get( getQuizData )
 
 router
   .route('/quizheaders')

@@ -23,6 +23,8 @@ function Quiz(props){
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
 
+  console.log(`START: ${startTime}  END: ${endTime}`)
+
   //* display state
   const [preQuizDisplay, setPreQuizDisplay] = useState(true);
   const [timerDisplay, setTimerDisplay] = useState(false);
@@ -33,7 +35,7 @@ function Quiz(props){
   // calls for all quiz data for the selected quiz
   async function getQuizDataAPI(quiz){
     try {
-      const result = await axios.get(`/api/quizdataTEST/${quiz}`);
+      const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
       //console.log("RESULT", quizData);
       setQuizData( quizData[0] );
@@ -43,7 +45,6 @@ function Quiz(props){
   };
 
   function preQuizClose(){
-    console.log("PreQuiz INIT---- ");
     setPreQuizDisplay(false);
     // start quiz
     setTimerDisplay(true);
@@ -52,7 +53,6 @@ function Quiz(props){
   };
 
   function stopQuiz(){
-    console.log("stopping quiz ---- ");
     setQuizDisplay(false);
     setTimerDisplay(false);
     setEndDisplay(true);
@@ -60,16 +60,15 @@ function Quiz(props){
   };
 
   function restartQuiz(){
-    console.log("---Restarting quiz");
     setTimeExpireDisplay(false);
     setQuizDisplay(true);
     setTimerDisplay(true);
+    setStartTime( Date.now() );
     // reset userData
     setUserData({ userCorrect: 0, userScore: 0, userAnswersArr: [ ] })
   };
 
   function timeExpireInit(){
-    console.log("TIME EXPIRE INIT");
     setTimerDisplay(false);
     setQuizDisplay(false);
     setTimeExpireDisplay(true);
@@ -79,15 +78,12 @@ function Quiz(props){
     getQuizDataAPI( selectedQuiz )
     
     const preQuizTimer = setTimeout( () => {
-      console.log("preQuizTimer ----> ");
       preQuizClose();
     }, 3600);
 
     const timer = setTimeout( () => {
-      console.warn("TIME IS UP")
     }, 600000);
     return () => { 
-      console.log("QUIZ ENDED -------")
       clearTimeout(preQuizTimer);
       clearTimeout(timer); 
     }

@@ -12,9 +12,9 @@ function EndQuiz(props){
     const [bonusPoints, setBonusPoints] = useState(0); 
     const history = useHistory();
 
-    console.log("QUIZ DATA ----", props.quizData);
-    console.log("USER ANSWERS ---", props.userData.userAnswersArr);
-    console.log(`START: ${props.startTime} END: ${props.endTime}`)
+    // console.log("QUIZ DATA ----", props.quizData);
+    // console.log("USER DATA ---", props.userData);
+    // console.log(`START: ${props.startTime} END: ${props.endTime}`)
 
     const questions = props.quizData.questionSet;
     
@@ -25,47 +25,46 @@ function EndQuiz(props){
 
     async function submitUsername(ev){
       ev.preventDefault();
-      //console.log("[submitUsername] -- submitting =>", usernameInput);
-      //props.setUsername(usernameInput);
-      setUsernameInput(""); 
-      postCurrentUserAPI();
-      //compareScores( props.quizData.topScore, props.userData.userScore, props.userData.bonusPoints);
-      history.push('/leaderboard');      
+      console.log("CLICK");
+      console.log(usernameInput.length )
+      if ( usernameInput && usernameInput.length <= 15 ){
+        setUsernameInput(""); 
+        postCurrentUserAPI();
+        compareScores( props.quizData.topScore, props.userData.userScore, bonusPoints);
+        history.push('/leaderboard'); 
+      } if ( usernameInput.length > 15 ) {
+          alert("Username exceeds 15 characters. Please shorten to continue!")
+      } if ( usernameInput.length <= 0 ) {
+          alert("Please add a username to submit!")
+      }
     };
 
     async function postCurrentUserAPI(){
       try {
         const data = { username: usernameInput, score: (props.userData.userScore + bonusPoints), quiz: props.quizData.quizTitle };
-        // eslint-disable-next-line no-unused-vars
-        const result = await axios.post('/api/userscores', data );
-        console.log("NEW USERSCORE POSTED ---", result)
+        await axios.post('/api/userscores', data );
       } catch (err) {
-        console.log("ERROR", err);
+          console.log("ERROR", err);
       };
     };
 
     function compareScores( currentScore, userScore, bonusPoints ){
-      console.log(`--- Current: ${currentScore} User: ${userScore} Bonus: ${bonusPoints}`);
       const totalScore = userScore + bonusPoints;
-      //console.log("TotalScore: ", totalScore)
       totalScore > currentScore && addTopScore();
     };
 
     function bonusPointsCalc(){
-      console.log(`START: ${props.startTime} END: ${props.endTime}`)
       const timeTaken = Math.floor( ( props.endTime - props.startTime ) / 1000 );
       const points = ( props.quizData.timeLimit - timeTaken ) * 5 * props.userData.userCorrect;
-      console.log(`Correct: ${props.userData.userCorrect} USER pts: ${props.userData.userScore} BONUS pts: ${points}`);
       setBonusPoints( points );
   };
 
     async function addTopScore(){
       try {
-        const data = { topScore: (props.userData.userScore + props.userData.bonusPoints), topUsername: usernameInput };
-        const result = await axios.put(`/api/quizdata/${props.quizID}`, data);
-        console.log("QUIZ data changed ---", result);
+        const data = { topScore: (props.userData.userScore + bonusPoints), topUsername: usernameInput };
+        await axios.put(`/api/quizdata/${props.quizData.quizTitle}`, data);
       } catch (err) {
-        console.log("ERROR", err);
+         console.log("ERROR", err);
       };
     };
 
@@ -90,19 +89,27 @@ function EndQuiz(props){
             { questions.map( q => {
               if( props.userData.userAnswersArr[ q.questionNumber - 1] === true){
                 return <div className="q-display correct" key={q.questionNumber}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-check-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                  </svg>
-                  <p>{q.questionNumber} - {q.question}</p>
+                  <div className="svg-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-check-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                  </div>
+                  
+                  <h6>#{q.questionNumber}</h6>
+                  <p>{q.question}</p>
                 </div>
               } else {
                 return <div className="q-display incorrect" key={q.questionNumber}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                  </svg>
-                  <p>{q.questionNumber} - {q.question}</p>
+                  <div className="svg-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                  </div>
+                  
+                  <h6>#{q.questionNumber}</h6>
+                  <p>{q.question}</p>
                 </div>
               }
             }
@@ -140,7 +147,6 @@ function EndQuiz(props){
             {props.userData.userScore + bonusPoints}
           </motion.span>
           </h5>
-    
           <div className="addusername">
             <p>Add username to scoreboard</p>
             <form action="submit" onSubmit={submitUsername}>

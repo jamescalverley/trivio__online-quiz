@@ -11,19 +11,20 @@ const axios = require('axios');
 
 function Scoreboard(props){
 
-  const [scores, setScores] = useState({ display: false })
-  const [display, setDisplay] = useState(false);
+  const [scores, setScores] = useState({ display: false });
+  const [noScoresDisplay, setNoScoresDisplay] = useState(false);
   
-  console.log("SCORES", scores)
-
   async function getScoreData(){
     try {
       const result = await axios.get('/api/userscores');
-      console.log("RESULT", result)
       const highScoresArr = result.data.highScores;
       const allScoresArr = result.data.allScores;
-      setScores( { ...scores, highScores: highScoresArr, allScores: allScoresArr })
-      setDisplay(true);
+      if ( highScoresArr.length >= 3  ){
+        setScores( { ...scores, highScores: highScoresArr, allScores: allScoresArr, display: true })
+      } else {
+        setNoScoresDisplay(true)
+      }
+
     } catch (err) {
         console.log("ERROR", err)
     };
@@ -42,7 +43,14 @@ function Scoreboard(props){
       animate="show"
       exit="exit"
     >
-      { display &&
+      { noScoresDisplay && 
+        <div className="noscores">
+          <h2>No User Scores!</h2>
+        </div>
+        
+
+      }
+      { scores.display &&
       <>
         <motion.h2
           variants={titleAnimation}

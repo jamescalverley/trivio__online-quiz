@@ -35,7 +35,7 @@ function HomePage(){
         // exit={{ x: 200 }}
       >
         <motion.h1 > 
-          Quiz<span>.</span>App
+          Triv<span>.</span>io
         </motion.h1>
         <motion.h2>Test Your Knowledge</motion.h2>
         <Link to="/quiz-select">

@@ -1,3 +1,4 @@
+
 // Page Animations
 export const pageAnimation = {
   hidden: { 
@@ -60,8 +61,6 @@ export const quizSelectAnimation = {
 export const playBtnAnimation = { 
   hover: {
     scale: 1.1, 
-    backgroundColor: "transparent", 
-    border: "1px solid #FFF"
   },
   tap: {
     scale: 0.85
