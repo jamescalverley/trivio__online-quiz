@@ -8,7 +8,68 @@
     "timeLimit": 60,
     "imageIcon":"imgGlobe",
     "imageAlt":"globe",
-    "questionSet":[{"questionNumber":1,"question":"How many continents are there?","answers":["4","6","7","8"],"correctAnswer":"7"},{"questionNumber":2,"question":"How many countries are there in the world?","answers":["200","195","197","202"],"correctAnswer":"197"},{"questionNumber":3,"question":"How many countires belong to the European Union","answers":["30","31","28","27"],"correctAnswer":"27"},{"questionNumber":4,"question":"What is the largest country in the world by population?","answers":["China","USA","India","Indonesia"],"correctAnswer":"China"},{"questionNumber":5,"question":"Which country has the longest coastline?","answers":["Russia","Indonesia","Norway","Canada"],"correctAnswer":"Canada"}]
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question":"What is the powerhouse of the cell?",
+        "correctAnswer":"Mitochondria",
+        "answers":["Mitochondria","Ribosome","Redbull","Nucleus"]
+      },
+      {
+        "questionNumber":2,
+        "question": "How many degrees Fahrenheit is 100 degrees Celsius? ",
+        "correctAnswer": "212",
+        "answers": ["326","100","451","212"]
+      }, 
+      {
+        "questionNumber":3,
+        "question": "Folic acid is the synthetic form of which vitamin?",
+        "correctAnswer": "Vitamin B",
+        "answers": ["Vitamin A","Vitamin B","Vitamin C","Vitamin D" ]
+      },
+      {
+        "questionNumber":4,
+        "question": "The element involved in making human blood red is which of the following?",
+        "correctAnswer": "Iron",
+        "answers": ["Copper","Iridium","Cobalt","Iron"]
+      },
+      {
+        "questionNumber":5,
+        "question": "Which is the most abundant element in the universe?",
+        "correctAnswer": "Hydrogen",
+        "answers": ["Helium","Lithium","Hydrogen","Oxygen"]
+      },
+      {
+        "questionNumber":6,
+        "question": "How many chromosomes are in your body cells?",
+        "correctAnswer": "23",
+        "answers": ["10","23","28","31"]
+      },
+      {
+        "questionNumber":7,
+        "question": "What are human nails made of?",
+        "correctAnswer": "Keratin",
+        "answers": ["Bone","Keratin","Chitin","Calcium"]
+      },
+      {
+        "questionNumber":8,
+        "question": "When was the first mammal successfully cloned?",
+        "correctAnswer": "1996",
+        "answers": ["2009","1999", "1996","1985"]
+      },
+      {
+        "questionNumber":9,
+        "question": "Deionized water is water with which of the following removed?",
+        "correctAnswer": "Iron",
+        "answers": ["Oxygen","Hydrogen","Iron","Uncharged atoms"]
+      },
+      {
+        "questionNumber":10,
+        "question": "Which of these elements on the Periodic Table is a Noble Gas?",
+        "correctAnswer": "Neon",
+        "answers": ["Neon","Potassium","Iodine","Colbalt"]
+      }
+    ]
   },
   {
     "quizTitle": "Technology",
@@ -19,7 +80,68 @@
     "timeLimit": 60,
     "imageIcon":"imgSave",
     "imageAlt":"floppy disk",
-    "questionSet":[{"questionNumber":1,"question":"NHL - How many continents are there?","answers":["4","6","7","8"],"correctAnswer":"7"},{"questionNumber":2,"question":"NHL - How many countries are there in the world?","answers":["200","195","197","202"],"correctAnswer":"197"},{"questionNumber":3,"question":"NHL - How many countires belong to the European Union","answers":["30","31","28","27"],"correctAnswer":"27"},{"questionNumber":4,"question":"NHL - What is the largest country in the world by population?","answers":["China","USA","India","Indonesia"],"correctAnswer":"China"},{"questionNumber":5,"question":"NHL - Which country has the longest coastline?","answers":["Russia","Indonesia","Norway","Canada"],"correctAnswer":"Canada"},{"questionNumber":6,"question":"NHL - Which country has the longest coastline?","answers":["Russia","Indonesia","Norway","Canada"],"correctAnswer":"Canada"}]
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question": "Which company designed the Betamax video cassette format?",
+        "correctAnswer": "Sony",
+        "answers": ["Panasonic","LG","Sony", "Fujitsu"]
+      },
+      {
+        "questionNumber":2,
+        "question": "Who patented a steam engine that produced continuous rotary motion?",
+        "correctAnswer": "James Watt",
+        "answers": ["Nikola Tesla","James Watt","Albert Einstein","Alessandro Volta"]
+      }, 
+      {
+        "questionNumber":3,
+        "question": "In any programming language, what is the most common way to iterate through an array?",
+            "correctAnswer": "For loops",
+            "answers": ["If Statements","Do-while loops","Whileloops", "For loops"]
+      },
+      {
+        "questionNumber":4,
+        "question": "Which of the following cellular device companies is NOT headquartered in Asia?",
+        "correctAnswer": "Nokia",
+        "answers": ["Nokia","LG Electronics","Samsung","HTC"]
+      },
+      {
+        "questionNumber":5,
+        "question": "Which Japanese company is the world's largest manufacturer of motorcycles?",
+        "correctAnswer": "Honda",
+        "answers": ["Yamaha","Suzuki","Kawasaki","Honda"]
+      },
+      {
+        "questionNumber":6,
+        "question": "What are the cylinder-like parts that pump up and down within the engine?",
+        "correctAnswer": "Pistons",
+        "answers": ["Leaf Springs","Pistons","Radiators","ABS"]
+      },
+      {
+        "questionNumber":7,
+        "question": "What was the original name of the search engine &quot;Google&quot;?",
+        "correctAnswer": "BackRub",
+        "answers": ["CatMassage","SearchPro","BackRub","Netscape Navigator"]
+      },
+      {
+        "questionNumber":8,
+        "question": "When was the DVD invented?",
+        "correctAnswer": "1995",
+        "answers": ["2000","1990","1995","1980"]
+      },
+      {
+        "questionNumber":9,
+        "question": "Automobiles produced by Telsa Motors operate on which form of energy?",
+        "correctAnswer": "Electricity",
+        "answers": ["Gasoline","Electricity","Diesel","Nuclear"]
+      },
+      {
+        "questionNumber":10,
+        "question": "When was the iPhone released?",
+        "correctAnswer": "2007",
+        "answers": ["2002","2010","2004", "2007" ]
+      }
+    ]
   },
   {
     "quizTitle":"Sports",
@@ -30,7 +152,68 @@
     "timeLimit": 60,
     "imageIcon":"imgTarget",
     "imageAlt":"target",
-    "questionSet":[{"questionNumber":1,"question":"Plants - How many continents are there?","answers":["4","6","7","8"],"correctAnswer":"7"},{"questionNumber":2,"question":"Plants - How many countries are there in the world?","answers":["200","195","197","202"],"correctAnswer":"197"},{"questionNumber":3,"question":"Plants - How many countires belong to the European Union","answers":["30","31","28","27"],"correctAnswer":"27"}]
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question": "Which of these teams isn't a member of the NHL's Original Six era?",
+        "correctAnswer": "Philadelphia Flyers",
+        "answers": ["New York Rangers","Philadelphia Flyers","Toronto Maple Leafs","Boston Bruins"]
+      },
+      {
+        "questionNumber":2,
+        "question": "Which nation hosted the FIFA World Cup in 2006?",
+        "correctAnswer": "Germany",
+        "answers": ["United Kingdom","Brazil","South Africa","Germany"]
+      }, 
+      {
+        "questionNumber":3,
+        "question": "How many points did LeBron James score in his first NBA game?",
+        "correctAnswer": "25",
+        "answers": ["19","25","69","41"]
+      },
+      {
+        "questionNumber":4,
+        "question": "What tool lends it's name to a last-stone advantage in an end in Curling?",
+        "correctAnswer": "Hammer",
+        "answers": ["Wrench","Drill","Screwdriver", "Hammer"]
+      },
+      {
+        "questionNumber":5,
+        "question": "In golf, what name is given to a hole score of two under par?",
+        "correctAnswer": "Eagle",
+        "answers": ["Eagle","Birdie","Bogey","Albatross"]
+      },
+      {
+        "questionNumber":6,
+        "question": "Which of the following Grand Slam tennis tournaments occurs LAST?",
+        "correctAnswer": "US Open",
+        "answers": ["US Open", "French Open","Wimbledon","Australian Open"]
+      },
+      {
+        "questionNumber":7,
+        "question": "What country hosted the 2014 Winter Olympics?",
+        "correctAnswer": "Russia",
+        "answers": ["Canada","United States","Russia","Germany"]
+      },
+      {
+        "questionNumber":8,
+        "question": "Who won the 2008 Formula 1 World Championship?",
+        "correctAnswer": "Lewis Hamilton",
+        "answers": ["Lewis Hamilton","Nico Rosberg","Sebastian Vettel","Jenson Button"]
+      },
+      {
+        "questionNumber":9,
+        "question": "Which country will host the 2022 FIFA World Cup?",
+        "correctAnswer": "Qatar",
+        "answers": ["USA","Japan","Qatar","Switzerland"]
+      },
+      {
+        "questionNumber":10,
+        "question": "Who won the 2011 Stanley Cup?",
+        "correctAnswer": "Los Angeles Kings",
+        "answers": ["Pittsburgh Penguins","Los Angeles Kings","New York Rangers","Chicago Blackhawks"]
+      }
+    ]
   },
   {
     "quizTitle":"Art",
@@ -41,7 +224,68 @@
     "timeLimit": 60,
     "imageIcon":"imgPalette",
     "imageAlt":"palette",
-    "questionSet":[{"questionNumber":1,"question":"This is a test question ?","correctAnswer":"test 3","answers":["test 1","test 2","test 3","test 4"]}]
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question": "The painting &quot;The Starry Night&quot; by Vincent van Gogh was part of which art movement?",
+        "correctAnswer": "Post-Impressionism",
+        "answers": ["Post-Impressionism","Romanticism","Neoclassical","Impressionism"]
+      },
+      {
+        "questionNumber":2,
+        "question": "Which artist's studio was known as &#039;The Factory&#039;?",
+        "correctAnswer": "Andy Warhol",
+        "answers": ["Andy Warhol","Roy Lichtenstein","David Hockney","Peter Blake"]
+      }, 
+      {
+        "questionNumber":3,
+        "question": "Who painted the Mona Lisa?",
+        "correctAnswer": "Leonardo da Vinci",
+        "answers": ["Pablo Picasso","Claude Monet","Vincent van Gogh", "Leonardo da Vinci"]
+      },
+      {
+        "questionNumber":4,
+        "question": "Which time signature is commonly known as Cut Time?",
+        "correctAnswer": "2/2",
+        "answers": ["4/4","6/8","2/2","3/4"]
+      },
+      {
+        "questionNumber":5,
+        "question": "Who painted the biblical fresco The Creation of Adam?",
+        "correctAnswer": "Michelangelo",
+        "answers": ["Michelangelo","Leonardo da Vinci","Caravaggio","Rembrandt"]
+      },
+      {
+        "questionNumber":6,
+        "question": "Who painted the Sistine Chapel?",
+        "correctAnswer": "Michelangelo",
+        "answers": ["Leonardo da Vinci","Michelangelo","Pablo Picasso","Raphael"]
+      },
+      {
+        "questionNumber":7,
+        "question": "Which of these are the name of a famous marker brand?",
+        "correctAnswer": "Copic",
+        "answers": ["Dopix","Cofix","Marx","Copic"]
+      },
+      {
+        "questionNumber":8,
+        "question": "Which painting was not made by Vincent Van Gogh?",
+        "correctAnswer": "The Ninth Wave",
+        "answers": ["Cafe Terrace at Night","Bedroom In Arles","The Ninth Wave","Starry Night"]
+      },
+      {
+        "questionNumber":9,
+        "question": "Who painted the epic mural Guernica?",
+        "correctAnswer": "Pablo Picasso",
+        "answers": ["Francisco Goya","Leonardo da Vinci","Henri Matisse", "Pablo Picasso"]
+      },
+      {
+        "questionNumber":10,
+        "question":"Jackson Pollock was best known for what painting technique?",
+        "correctAnswer":"Action Painting",
+        "answers": ["Divisionism","Action Painting","Miniatrue Painting","Ink Painting"]
+      }
+    ]
   },
   {
     "quizTitle":"Movies",
@@ -52,7 +296,68 @@
     "timeLimit": 60,
     "imageIcon":"imgCamera",
     "imageAlt":"camera",
-    "questionSet":[{"questionNumber":1,"question":"This is a test question ?","correctAnswer":"test 3","answers":["test 1","test 2","test 3","test 4"]}]
+    "questionSet":[
+      {
+        "questionNumber":1,
+        "question": "What is the highest grossing film of all time (without adjusting for inflation)?",
+        "correctAnswer": "Avengers: Endgame",
+        "answers": ["Jurassic World","Avatar","Titanic", "Avengers: Endgame"]
+      },
+      {
+        "questionNumber":2,
+        "question": "Which movie of film director Stanley Kubrick is known to be an adaptation of a Stephen King novel?",
+        "correctAnswer": "The Shining",
+        "answers": ["2001: A Space Odyssey","The Shining","Dr. Strangelove ","Eyes Wide Shut"]
+      }, 
+      {
+        "questionNumber":3,
+        "question": "What breed of dog was Marley in the film, Marley & Me (2008)?",
+        "correctAnswer": "Labrador Retriever",
+        "answers": ["Labrador Retriever","Golden Retriever","Dalmatian","Shiba Inu"]
+      },
+      {
+        "questionNumber":4,
+        "question": "What year did the James Cameron film, Titanic, come out in theaters?",
+        "correctAnswer": "1997",
+        "answers": ["1993","1997","1999","2001"]
+      },
+      {
+        "questionNumber":5,
+        "question": "Which of the following James Bond villains is not affiliated with the SPECTRE organization?",
+        "correctAnswer": "Auric Goldfinger",
+        "answers": ["Dr. Julius No","Rosa Klebb","Auric Goldfinger","Emilio Largo"]
+      },
+      {
+        "questionNumber":6,
+        "question": "In which African country was the 2006 film, Blood Diamond, mostly set in?",
+        "correctAnswer": "Sierra Leone",
+        "answers": ["Sierra Leone","Liberia","Burkina Faso","Central African Republic"]
+      },
+      {
+        "questionNumber":7,
+        "question": "&quot;The first rule is: you don&#039;t talk about it&quot; is a reference to which movie?",
+        "correctAnswer": "Fight Club",
+        "answers": ["The Island","Unthinkable","Fight Club","American Pie"]
+      },
+      {
+        "questionNumber":8,
+        "question": "Who plays &quot;Bruce Wayne&quot; in the 2008 movie &quot;The Dark Knight&quot;?",
+        "correctAnswer": "Christian Bale",
+        "answers": ["Michael Caine","Christian Bale","Ron Dean","Heath Ledger"]
+      },
+      {
+        "questionNumber":9,
+        "question": "In Back to the Future Part II, Marty and Dr. Emmett Brown go to which future date?",
+        "correctAnswer": "October 21, 2015",
+        "answers": ["August 28, 2015","July 20, 2015","October 21, 2015","January 25, 2015" ]
+      },
+      {
+        "questionNumber":10,
+        "question": "Which of the following actors does not play a role in the movie &quot;The Usual Suspects?&quot;",
+        "correctAnswer": "Steve Buscemi",
+        "answers": ["Steve Buscemi","Kevin Spacey","Benicio Del Toro","Gabriel Byrne"]
+      }
+    ]
   },
   {
     "quizTitle":"Music",
@@ -63,7 +368,68 @@
     "timeLimit": 60,
     "imageIcon":"imgMic",
     "imageAlt":"microphone",
-    "questionSet":[{"questionNumber":1,"question":"This is a test question ?","correctAnswer":"test 3","answers":["test 1","test 2","test 3","test 4"]}]
+    "questionSet": [
+      {
+        "questionNumber":1,
+        "question":"Which song by Swedish electronic musician Avicii samples the song: Something's Got A Hold On Me by Etta James?",
+        "correctAnswer":"Levels",
+        "answers":[ "Fade Into Darkness", "Silhouettes", "Levels", "Seek Bromance"]
+      },
+      {
+        "questionNumber":2,
+        "question":"Which of Michael Jackson&#039;s albums sold the most copies?",
+        "correctAnswer":"Thriller",
+        "answers":[ "Dangerous", "Thriller", "Bad", "Off the Wall"]
+      }, 
+      {
+        "questionNumber":3,
+        "question":"When did Tame Impala release their second album?",
+        "correctAnswer":"2012",
+        "answers": ["2015", "2005", "2012", "2000"]
+      },
+      {
+        "questionNumber":4,
+        "question":"The heavy metal band Black Sabbath hail from which English city?",
+        "correctAnswer":"Birmingham",
+        "answers": ["Birmingham", "Manchester", "London", "Newcastle-Upon-Tyne"]
+      },
+      {
+        "questionNumber":5,
+        "question":"From which country does the piano originate?",
+        "correctAnswer":"Italy",
+        "answers": ["Germany", "Austria", "France", "Italy"]
+      },
+      {
+        "questionNumber":6,
+        "question": "Which of the following is not a studio album by the band Pink Floyd?",
+        "correctAnswer": "Moving Pictures",
+        "answers": ["The Dark Side of the Moon","Moving Pictures","Wish You Were Here","Animals"]
+      },
+      {
+        "questionNumber":7,
+        "question": "The Rush song &quot;YYZ&quot; derives its name from the IATA aiport identification code for which city?",
+        "correctAnswer": "Toronto",
+        "answers": ["Vancouver","Ottowa","Toronto","Calgary"]
+      },
+      {
+        "questionNumber":8,
+        "question": "What album did Gorillaz release in 2017?",
+        "correctAnswer": "Humanz",
+        "answers": ["Plastic Beach","The Fall","Humanz","Demon Days"]
+      },
+      {
+        "questionNumber":9,
+        "question": "Which of these Johns was murdered by gunshots outside the Dakota in New York in 1980?",
+        "correctAnswer": "John Lennon",
+        "answers": ["Johnny Thunders","John Lennon", "John Denver","John Cascella"]
+      },
+      {
+        "questionNumber":10,
+        "question": "Which of the following guitarists recorded an album as a member of the Red Hot Chili Peppers?",
+        "correctAnswer": "Dave Navarro",
+        "answers": ["Tom Morello","Billy Corgan","Dave Grohl", "Dave Navarro"]
+      }
+    ]
   }
 ]
   
