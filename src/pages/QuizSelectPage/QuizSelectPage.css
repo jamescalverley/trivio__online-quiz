@@ -1,4 +1,5 @@
 .quizselect {
+  padding: 1rem 3rem;
   margin: auto;
   width: auto;
   max-width: 1110px;
@@ -11,18 +12,29 @@
 .quizselect-title h2 {
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
+  /* font-size: 28px;
   line-height: 33px;
+  color: #FFFFFF; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
   color: #FFFFFF;
   margin: 0;
-  
-  
 }
 .quizheader-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 2rem 0 2rem 0;
+  margin: 2rem auto;
 }
 
+@media (max-width: 1000px) {
+  .quizselect {
+    padding: 1rem 
+  }
+  .quizselect-title {
+    text-align: center;
+  }
+}

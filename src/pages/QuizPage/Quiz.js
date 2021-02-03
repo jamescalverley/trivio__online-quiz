@@ -82,8 +82,9 @@ function Quiz(props){
     }, 3600);
 
     const timer = setTimeout( () => {
-    }, 600000);
+    }, 63000);
     return () => { 
+      console.log("CLEAR ________")
       clearTimeout(preQuizTimer);
       clearTimeout(timer); 
     }

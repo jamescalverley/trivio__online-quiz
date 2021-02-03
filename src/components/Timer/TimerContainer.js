@@ -4,7 +4,6 @@ import Timer from './Timer';
 function TimerContainer({ timeExpireInit }) {
   
   useEffect( () => {
-    
     const timer = setTimeout( () => {
       timeExpireInit();
     }, 61000 );

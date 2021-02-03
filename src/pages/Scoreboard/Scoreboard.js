@@ -47,8 +47,6 @@ function Scoreboard(props){
         <div className="noscores">
           <h2>No User Scores!</h2>
         </div>
-        
-
       }
       { scores.display &&
       <>
@@ -60,7 +58,7 @@ function Scoreboard(props){
           Leaderboard
         </motion.h2>
         <div className="scores-container">
-          <div className="highscores-container">
+          <div className="highscores-container horizontal">
             <motion.div 
               className="ribbon-wrapper lower"
               variants={ribbonAnimation.second}
@@ -68,7 +66,7 @@ function Scoreboard(props){
               animate="show"
             >
               <div className="medal-image-sm">
-                <img src={Medal_2} alt="first-place-medal"/>
+                <img src={Medal_2} alt="second-place-medal"/>
               </div>
               <div className="highscore">
                 <div className="block-out">
@@ -116,7 +114,7 @@ function Scoreboard(props){
               animate="show"
             >
               <div className="medal-image-sm">
-                <img src={Medal_3} alt="first-place-medal"/>
+                <img src={Medal_3} alt="third-place-medal"/>
               </div>
               <div className="highscore">
                 <div className="block-out">
@@ -130,6 +128,80 @@ function Scoreboard(props){
                   <h5>{scores.highScores[2].score}</h5>
                   <h3>Quiz</h3>
                   <h5>{scores.highScores[2].quiz}</h5>
+                </div> 
+              </div>
+            </motion.div>
+          </div>
+          <div className="highscores-container vertical">
+            <motion.div 
+              className="ribbon-wrapper lower"
+              variants={ribbonAnimation.second}
+              intital="hidden"
+              animate="show"
+            >
+              <div className="medal-image-lg">
+                <img src={Medal_1} alt="first-place-medal"/>
+              </div>
+              <div className="highscore">
+                <div className="block-out">
+                  <div className="triangle-left"></div>
+                  <div className="triangle-right"></div>
+                </div>
+                <div className="highscore-info">
+                  <h3>Username</h3>
+                  <h5>{scores.highScores[0].username}</h5>
+                  <h3>Points</h3>
+                  <h5>{scores.highScores[0].score}</h5>
+                  <h3>Quiz</h3>
+                  <h5>{scores.highScores[0].quiz}</h5>
+                </div> 
+              </div>
+            </motion.div>
+            <motion.div 
+              className="ribbon-wrapper"
+              variants={ribbonAnimation.first}
+              intital="hidden"
+              animate="show"
+            >
+              <div className="medal-image-lg">
+                <img src={Medal_2} alt="second-place-medal"/>
+              </div>
+              <div className="highscore">
+                <div className="block-out">
+                  <div className="triangle-left"></div>
+                  <div className="triangle-right"></div>
+                </div>
+                <div className="highscore-info">
+                  <h3>Username</h3>
+                  <h5>{scores.highScores[1].username}</h5>
+                  <h3>Points</h3>
+                  <h5>{scores.highScores[1].score}</h5>
+                  <h3>Quiz</h3>
+                  <h5>{scores.highScores[1].quiz}</h5>
+                </div> 
+              </div>
+            </motion.div>
+            <motion.div 
+              className="ribbon-wrapper lower"
+              variants={ribbonAnimation.third}
+              intital="hidden"
+              animate="show"
+            >
+              <div className="medal-image-lg">
+                <img src={Medal_3} alt="third-place-medal"/>
+              </div>
+              <div className="highscore">
+                <div className="block-out">
+                  <div className="triangle-left"></div>
+                  <div className="triangle-right"></div>
+                </div>
+                <div className="highscore-info">
+                  <h3>Username</h3>
+                  <h5>{scores.highScores[1].username}</h5>
+                  <h3>Points</h3>
+                  <h5>{scores.highScores[1].score}</h5>
+                  <h3>Quiz</h3>
+                  <h5>{scores.highScores[1].quiz}</h5>
                 </div> 
               </div>
             </motion.div>

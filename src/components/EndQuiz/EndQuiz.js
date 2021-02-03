@@ -81,10 +81,10 @@ function EndQuiz(props){
         animate="show"
       >
         <h1>Quiz Complete!</h1>
+        <h2>{props.quizData.quizTitle}</h2>
         <div className="end-quiz">
-          <div className="end-quiz-display-left">
-          <h2>{props.quizData.quizTitle}</h2>
-          <h4>You got <span>{props.userData.userCorrect}</span>/{questions.length} correct.</h4>
+          <div className="end-quiz-display-questions">
+          <h4>You got <span>{props.userData.userCorrect}</span>/{questions.length} questions correct.</h4>
           <div className="question-list">
             { questions.map( q => {
               if( props.userData.userAnswersArr[ q.questionNumber - 1] === true){
@@ -95,7 +95,6 @@ function EndQuiz(props){
                       <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
                     </svg>
                   </div>
-                  
                   <h6>#{q.questionNumber}</h6>
                   <p>{q.question}</p>
                 </div>
@@ -116,7 +115,7 @@ function EndQuiz(props){
             )}
           </div>
         </div> 
-          <div className="end-quiz-display-right">
+          <div className="end-quiz-display-points">
           <div className="points">
             <div>
               <h2>Points</h2>

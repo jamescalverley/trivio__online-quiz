@@ -1,9 +1,8 @@
-body {
-  background: #3225A9;
-}
 .quiz {
+  height: 100%;
   max-width: 1200px;
   margin: 55px auto;
+  padding: 0 2rem
 }
 .quiz h2 {
   text-align: center;
@@ -14,4 +13,18 @@ body {
   color: #FFFFFF;
   font-variant: small-caps;
   margin: 1rem auto 0.5rem auto;
+}
+
+@media (max-width: 800px) {
+  .quiz {
+    margin: 24px auto;
+  }
+}
+@media (max-width: 578px) {
+  .quiz {
+    padding: 0 1rem;
+  }
+  .quiz h2 {
+    margin: 0.5rem auto 0.5rem auto;
+  }
 }

@@ -1,8 +1,12 @@
 .scoreboard-page {
   padding: 0 6rem 6rem 6rem;
   background-color: #3225A9;
-  height: 100%;
   min-height: 100vh;
+  padding: 1rem 3rem;
+  margin: auto;
+  width: auto;
+  max-width: 1110px;
+  height: fit-content;
 }
 .scoreboard-page h2, .noscores h2 {
   font-style: normal;
@@ -16,14 +20,11 @@
   margin: 6rem auto;
   width: fit-content;
 }
-
 .scores-container {
   display: flex;
   flex-direction: row;
 }
-
 .scores-container h3 {
-  font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
@@ -32,7 +33,6 @@
   margin: 1rem 0 0 0;
 }
 .scores-container h4 {
-  font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
@@ -41,7 +41,6 @@
 
 }
 .scores-container h5 {
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
@@ -49,7 +48,6 @@
   margin: 0;
 }
 .scores-container p {
-  font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
@@ -64,7 +62,6 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-
 .ribbon-wrapper {
   margin: 1rem;
   box-sizing: border-box;
@@ -86,7 +83,6 @@
 .medal-image-lg img, .medal-image-sm img {
   width: 100%;
   height: 100%;
-
 } 
 .highscore {
   width: 144px;
@@ -140,6 +136,7 @@
   border-radius: 50px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -154,6 +151,75 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
+  .scoreboard-page h2, .noscores h2 {
+    text-align: center;
+    margin: 0 0 2rem 0;
+  }
+  .scores-container {
+    flex-direction: column;
+  }
+  .highscores-container {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .allscores-container {
+    width: fit-content;
+    margin: auto;
+  }
+} 
+
+@media (max-width: 800px) {
+  .scoreboard-page {
+    padding: 0 1rem 6rem 1rem;
+  }
+}
+
+@media (max-width: 578px) {
+  .scoreboard-page {
+    padding: 2rem 1rem 6rem 1rem
+  }
+  .highscores-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .highscore {
+    margin: auto;
+  }
+  .ribbon-wrapper {
+    margin: 1rem auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .medal-image-sm {
+    width: 67px;
+    height: 67px;
+    margin: 0 auto -36px auto;
+    /* position: relative; */
+  }
+  .score {
+    margin: 0.5rem auto;
+  }
+}
+
+
+.vertical {
+  display: none;
+}
+
+@media (max-width: 578px) {
+  .vertical {
+    display: inline;
+  }
+  .horizontal {
+    display: none;
+  }
 }
 
 

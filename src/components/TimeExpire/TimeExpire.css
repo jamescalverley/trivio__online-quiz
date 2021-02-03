@@ -16,8 +16,6 @@
   line-height: 33px;
   color: #FFFFFF;
 }
-
-
 .time-expire-container button {
   padding: 0.5rem;
   margin: 0;
@@ -33,7 +31,6 @@
   color: #FAE426;
   margin: 0.6rem;
 }
-
 .time-expire-container button:hover {
   cursor: pointer;
   scale: 1.1;
@@ -46,3 +43,16 @@
   background: #F5F5F7;
   color: black;
 }
+
+@media (max-width: 578px) {
+  .time-expire-container {
+    background: transparent;
+    padding: 2rem;
+  }
+  .time-expire-container h1 {
+    margin-bottom: 3rem;
+  }
+  .time-expire-container button {
+    border: 1px solid #FFF;
+  }
+} 

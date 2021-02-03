@@ -1,5 +1,5 @@
 .next-question {
-  padding: 4rem;
+  padding: 2rem;
 }
 .next-question button {
   width: 150px;
@@ -12,4 +12,10 @@
   font-size: 14px;
   line-height: 16px;
   color: #3C35B1;
+}
+
+@media (max-width: 800px) {
+  .next-question {
+    padding: 2rem;
+  }
 }

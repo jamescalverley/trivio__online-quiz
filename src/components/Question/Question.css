@@ -30,3 +30,13 @@
   max-width: 800px;
   margin: auto;
 }
+
+@media (max-width: 578px) {
+  .active-question {
+    padding: 0 0.5rem;
+  }
+  .active-question p {
+    font-size: 18px;
+    margin: 1rem 0;
+  }
+}
