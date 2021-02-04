@@ -13,7 +13,7 @@ app.use( express.urlencoded({ extended: true }) );
 // mongoDB connection
 dbConnection();
 
-app.use('/', express.static('build'))
+app.use('/*', express.static('build'))
 
 const quizApi = require('./backend/routes/apiRoutes')
 app.use('/api', quizApi )
