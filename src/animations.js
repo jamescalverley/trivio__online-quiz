@@ -75,12 +75,12 @@ export const fadeInAnimation = {
 export const answerBtnAnimation = {
   hover: { scale: 1.05, y: -3 },
   tap: { scale: 0.9 }, 
-  hidden: { opacity: 0, x: 200 }, 
-  show: { opacity: 1, x: 0,  transition: { duration: 1 }}, 
+  hidden: { opacity: 0, y: 10 }, 
+  show: { opacity: 1, y: 0,  transition: { duration: 0.8 }}, 
 };
 
 export const nextQFadeAnimation = {
-  hidden: { opacity: 0, y: 200 }, 
+  hidden: { opacity: 0, y: 50 }, 
   show: { opacity: 1, y: 0, transition: { duration: 0.5 }},
   hover: { scale: 1.1 },
   tap: { scale: 0.8 }

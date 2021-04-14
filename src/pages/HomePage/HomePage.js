@@ -17,8 +17,6 @@ function HomePage(){
   //   show: { opacity: 1, transition: { duration: 1, delay: 0.4 } }
   // };
 
-  
-
   return (
     <motion.div 
       className="home"

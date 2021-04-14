@@ -23,8 +23,6 @@ function Quiz(props){
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
 
-  console.log(`START: ${startTime}  END: ${endTime}`)
-
   //* display state
   const [preQuizDisplay, setPreQuizDisplay] = useState(true);
   const [timerDisplay, setTimerDisplay] = useState(false);
@@ -37,7 +35,7 @@ function Quiz(props){
     try {
       const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
-      //console.log("RESULT", quizData);
+      console.log("RESULT", quizData);
       setQuizData( quizData[0] );
     } catch (err) {
       console.log("ERROR", err);
@@ -76,7 +74,6 @@ function Quiz(props){
 
   useEffect( () => {
     getQuizDataAPI( selectedQuiz )
-    
     const preQuizTimer = setTimeout( () => {
       preQuizClose();
     }, 3600);
@@ -84,7 +81,6 @@ function Quiz(props){
     const timer = setTimeout( () => {
     }, 63000);
     return () => { 
-      console.log("CLEAR ________")
       clearTimeout(preQuizTimer);
       clearTimeout(timer); 
     }
