@@ -26,4 +26,7 @@
   .timer-bar-container {
     margin: 0 auto 1rem auto;
   }
+  .timer-bar {
+    height: 8px;
+  }
 }

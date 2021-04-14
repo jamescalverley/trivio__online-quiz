@@ -35,7 +35,6 @@ function Quiz(props){
     try {
       const result = await axios.get(`/api/quizdata/${quiz}`);
       const quizData = result.data.data;
-      console.log("RESULT", quizData);
       setQuizData( quizData[0] );
     } catch (err) {
       console.log("ERROR", err);
